@@ -25,7 +25,7 @@ class UserAuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
        
-        $token = $user->createToken('LaravelAuthApp')->accessToken;
+        $token = $user->createToken('token')->accessToken;
  
         return response()->json(['token' => $token], 200);
     }
@@ -41,7 +41,7 @@ class UserAuthController extends Controller
         ];
  
         if (auth()->attempt($data)) {
-            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
+            $token = auth()->user()->createToken('token')->accessToken;
             return response()->json(['token' => $token], 200);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
