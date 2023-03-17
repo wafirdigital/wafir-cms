@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UserAuthController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::group(['prefix' => 'user'], function(){
 });
 
 Route::group(['middleware' => 'auth:api'], function(){
-
+    Route::resource('users', UsersController::class);
 });
 
 
