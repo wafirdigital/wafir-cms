@@ -11,7 +11,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        dd('in index');
     }
 
     /**
