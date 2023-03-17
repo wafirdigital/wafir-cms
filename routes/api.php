@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UserAuthController;
 
@@ -15,8 +14,10 @@ use App\Http\Controllers\Auth\UserAuthController;
 |
 */
 
-Route::post('/user/register', [UserAuthController::class, 'register']);
-Route::post('/user/login', [UserAuthController::class, 'login']);
+Route::group(['prefix' => 'user'], function(){
+    Route::post('register', [UserAuthController::class, 'register']);
+    Route::post('login', [UserAuthController::class, 'login']);
+});
 
 Route::group(['middleware' => 'auth:api'], function(){
 
