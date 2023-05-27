@@ -22,7 +22,7 @@ Route::group(['prefix' => 'user'], function(){
     Route::post('login', [UserAuthController::class, 'login']);
 });
 
-Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth:api','prefix' => 'v1'], function(){
     Route::resource('users', UserController::class);
     Route::resource('roles', UserController::class);
     Route::resource('posts', PostController::class);
