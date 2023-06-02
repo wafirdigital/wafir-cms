@@ -8,9 +8,47 @@ use App\Models\User;
 
 class UserAuthController extends Controller
 {
-     /**
-     * Registration
-     */
+    
+
+    /**
+       * @OA\Post(
+       * path="/api/v1/programs",
+       * operationId="Add New Programs",
+       * tags={"Register"},
+       * summary="Add New Program",
+       * description="Add New Program",
+       * security={{ "apiAuth": {} }},
+       *     @OA\RequestBody(
+       *         @OA\JsonContent(),
+       *         @OA\MediaType(
+       *            mediaType="multipart/form-data",
+       *            @OA\Schema(
+       *               type="object",
+       *               required={"title", "description" },
+       *                @OA\Property(property="title", type="text", example="Program No 1"),
+       *                @OA\Property(property="description", type="text", example=" description Program No 1"),
+       *            ),
+       *        ),
+       *    ),
+       *      @OA\Response(
+       *          response=201,
+       *          description="Programs Created Successfully",
+       *          @OA\JsonContent()
+       *       ),
+       *      @OA\Response(
+       *          response=200,
+       *          description="Programs Created Successfully",
+       *          @OA\JsonContent()
+       *       ),
+       *      @OA\Response(
+       *          response=422,
+       *          description="Unprocessable Entity",
+       *          @OA\JsonContent()
+       *       ),
+       *      @OA\Response(response=400, description="Bad request"),
+       *      @OA\Response(response=404, description="Resource Not Found"),
+       * )
+       */
     public function register(Request $request)
     {
         $this->validate($request, [

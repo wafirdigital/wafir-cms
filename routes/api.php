@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UserAuthController;
-use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BidController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +20,12 @@ use App\Http\Controllers\AdminController;
 Route::group(['prefix' => 'auth'], function(){
     Route::post('register',    [UserAuthController::class, 'register']);
     Route::post('login',       [UserAuthController::class, 'login']);
-    Route::post('admin-login', [AdminAuthController::class, 'login']);
 });
 
-Route::group(['middleware' => 'auth:api','prefix' => 'v1'], function(){
-    Route::resource('users',  UserController::class);
-    Route::resource('roles',  RoleController::class);
-    Route::resource('posts',  PostController::class);
-    Route::resource('admins', AdminController::class);
+Route::group(['middleware' => 'auth:api', 'prefix'=> 'v1'], function(){
+    Route::resource('users',     UserController::class);
+    Route::resource('bids',      BidController::class);
+    Route::resource('products',  ProductController::class);
 });
 
 
