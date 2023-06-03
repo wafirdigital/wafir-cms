@@ -9,8 +9,6 @@ use App\Models\User;
 class UserController extends Controller
 {
     
-
-
     /**
      * @OA\Get(
      * path="/api/v1/users",
@@ -60,9 +58,9 @@ class UserController extends Controller
      *            @OA\Schema(
      *               type="object",
      *               required={"name", "email", "password" },
-     *                @OA\Property(property="name", type="text", example="Odai Nasser"),
-     *                @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
-     *                @OA\Property(property="password", type="text", example="12345678"),
+     *               @OA\Property(property="name", type="text", example="Odai Nasser"),
+     *               @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
+     *               @OA\Property(property="password", type="text", example="12345678"),
      *            ),
      *        ),
      *    ),
@@ -134,22 +132,111 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
+        $user = User::findOrFail($id);
+        return new UserResource($user);
+    }
+
+    /**
+    * @OA\Put(
+    * path="/api/v1/users/{id}",
+    * operationId="Update User By ID",
+    * tags={"Users"},
+    * summary="Update User By ID",
+    * description="Update User By ID",
+    * security={{ "apiAuth": {} }},
+    *        @OA\Parameter(
+    *       description="User ID",
+    *       in="path",
+    *       name="id",
+    *       required=true,
+    *       example="1",
+    *       @OA\Schema(
+    *           type="integer",
+    *           format="int64"
+    *       )
+    *   ),
+    *     @OA\RequestBody(
+    *         @OA\JsonContent(),
+    *         @OA\MediaType(
+    *            mediaType="multipart/form-data",
+    *            @OA\Schema(
+    *               type="object",
+    *               required={"name", "email", "password" },
+    *               @OA\Property(property="name", type="text", example="Odai Nasser"),
+    *               @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
+    *               @OA\Property(property="password", type="text", example="12345678"),
+    *             ),
+    *        ),
+    *    ),
+    *      @OA\Response(
+    *          response=201,
+    *          description="User By ID Updated Successfully",
+    *          @OA\JsonContent()
+    *       ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="User By ID Updated Successfully",
+    *          @OA\JsonContent()
+    *       ),
+    *      @OA\Response(
+    *          response=422,
+    *          description="Unprocessable Entity",
+    *          @OA\JsonContent()
+    *       ),
+    *      @OA\Response(response=400, description="Bad request"),
+    *      @OA\Response(response=404, description="Resource Not Found"),
+    * )
+    */
+    public function update(UserRequest $request, string $id)
+    {
         return $id;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UserRequest $request, string $id)
-    {
-        //
-    }
+    
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     * path="/api/v1/users/{id}",
+     * operationId="Delete User By ID",
+     * tags={"Users"},
+     * summary="Delete User By ID",
+     * description="Delete User By ID",
+     * security={{ "apiAuth": {} }},
+     *   @OA\Parameter(
+     *       description="User ID",
+     *       in="path",
+     *       name="id",
+     *       required=true,
+     *       example="1",
+     *       @OA\Schema(
+     *           type="integer",
+     *           format="int64"
+     *       )
+     *   ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="User By ID Return Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="User By ID Deleted Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="User By ID Not Found"),
+     * )
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        if($user->delete()){
+            return response('User By ID Deleted Successfully',200);
+        }
     }
 }
