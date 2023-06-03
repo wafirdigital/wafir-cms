@@ -274,14 +274,14 @@
                 ]
             }
         },
-        "/api/v1/exercises/{id}": {
+        "/api/v1/users/{id}": {
             "get": {
                 "tags": [
-                    "Exercises"
+                    "Users"
                 ],
                 "summary": "Get exercise By Id",
                 "description": "Get exercise By Id",
-                "operationId": "Get Exercises By Id",
+                "operationId": "Get Users By Id",
                 "parameters": [
                     {
                         "name": "id",
@@ -297,7 +297,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Exercises Return Successfully",
+                        "description": "Users Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -305,7 +305,7 @@
                         }
                     },
                     "200": {
-                        "description": "Exercises Return Successfully",
+                        "description": "Users Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}

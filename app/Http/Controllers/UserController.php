@@ -96,9 +96,9 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     * path="/api/v1/exercises/{id}",
-     * operationId="Get Exercises By Id",
-     * tags={"Exercises"},
+     * path="/api/v1/users/{id}",
+     * operationId="Get Users By Id",
+     * tags={"Users"},
      * summary="Get exercise By Id",
      * description="Get exercise By Id",
      * security={{ "apiAuth": {} }},
@@ -115,12 +115,12 @@ class UserController extends Controller
      * ),
      *      @OA\Response(
      *          response=201,
-     *          description="Exercises Return Successfully",
+     *          description="Users Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Exercises Return Successfully",
+     *          description="Users Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -134,7 +134,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $id;
     }
 
     /**
