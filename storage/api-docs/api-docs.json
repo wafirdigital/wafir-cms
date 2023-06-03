@@ -279,14 +279,14 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Get exercise By Id",
-                "description": "Get exercise By Id",
+                "summary": "Get User By Id",
+                "description": "Get User By Id",
                 "operationId": "Get Users By Id",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Exercise ID",
+                        "description": "User ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
