@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('description');
             $table->decimal('starting_price');
-            $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
+            $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
             $table->enum('status',['draft','active', 'closed']);
             $table->timestamps();
         });
