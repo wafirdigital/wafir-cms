@@ -101,10 +101,12 @@
                                 ],
                                 "properties": {
                                     "email": {
-                                        "type": "email"
+                                        "type": "text",
+                                        "example": "karajah90@icloud.com"
                                     },
                                     "password": {
-                                        "type": "password"
+                                        "type": "text",
+                                        "example": "12345678"
                                     }
                                 },
                                 "type": "object"

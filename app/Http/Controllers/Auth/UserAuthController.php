@@ -68,10 +68,6 @@ class UserAuthController extends Controller
         return response()->json(['token' => $token], 200);
     }
  
-    
-
-
-
     /**
     * @OA\Post(
     * path="/api/v1/auth/login",
@@ -86,8 +82,8 @@ class UserAuthController extends Controller
     *            @OA\Schema(
     *               type="object",
     *               required={"email", "password"},
-    *               @OA\Property(property="email", type="email"),
-    *               @OA\Property(property="password", type="password")
+    *                @OA\Property(property="email", type="text", example="karajah90@icloud.com"),
+    *                @OA\Property(property="password", type="text", example="12345678"),
     *            ),
     *        ),
     *    ),
