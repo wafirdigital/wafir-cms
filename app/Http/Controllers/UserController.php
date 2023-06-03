@@ -189,7 +189,10 @@ class UserController extends Controller
     */
     public function update(UserRequest $request, string $id)
     {
-        return $id;
+        $user = User::findOrFail($id);
+        $user = $user->update($request);
+
+        return new UserResource($user);
     }
 
     
