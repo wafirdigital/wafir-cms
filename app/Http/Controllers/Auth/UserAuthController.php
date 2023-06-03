@@ -12,10 +12,10 @@ class UserAuthController extends Controller
     /**
      * @OA\Post(
      * path="/api/v1/auth/register",
-     * operationId="Add New User",
+     * operationId="Register New User",
      * tags={"Auth"},
-     * summary="Add New User",
-     * description="Add New User",
+     * summary="Register New User",
+     * description="Register New User",
      * security={{ "apiAuth": {} }},
      *     @OA\RequestBody(
      *         @OA\JsonContent(),

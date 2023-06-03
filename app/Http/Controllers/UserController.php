@@ -41,37 +41,98 @@ class UserController extends Controller
      */
     public function index()
     {
-        return "hi";
+        return UserResource::collection(User::paginate(10));
     }
 
+    
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     * path="/api/v1/users",
+     * operationId="Add New User",
+     * tags={"Users"},
+     * summary="Add New User",
+     * description="Add New User",
+     * security={{ "apiAuth": {} }},
+     *     @OA\RequestBody(
+     *         @OA\JsonContent(),
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *            @OA\Schema(
+     *               type="object",
+     *               required={"name", "email", "password" },
+     *                @OA\Property(property="name", type="text", example="Odai Nasser"),
+     *                @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
+     *                @OA\Property(property="password", type="text", example="12345678"),
+     *            ),
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="User Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="User Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * )
      */
     public function store(UserRequest $request)
     {
-        //
+        $character= User::create($request->all());
+
+        return new UserResource($character);
     }
 
+   
+
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     * path="/api/v1/exercises/{id}",
+     * operationId="Get Exercises By Id",
+     * tags={"Exercises"},
+     * summary="Get exercise By Id",
+     * description="Get exercise By Id",
+     * security={{ "apiAuth": {} }},
+     * @OA\Parameter(
+     *    description="Exercise ID",
+     *    in="path",
+     *    name="id",
+     *    required=true,
+     *    example="1",
+     *    @OA\Schema(
+     *       type="integer",
+     *       format="int64"
+     *    )
+     * ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Exercises Return Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Exercises Return Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Exercise Not Found"),
+     * )
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
         //
     }

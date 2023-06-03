@@ -10,9 +10,9 @@
                 "tags": [
                     "Auth"
                 ],
-                "summary": "Add New User",
-                "description": "Add New User",
-                "operationId": "Add New User",
+                "summary": "Register New User",
+                "description": "Register New User",
+                "operationId": "Register New User",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -170,6 +170,82 @@
                     },
                     "200": {
                         "description": "Users Return Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Add New User",
+                "description": "Add New User",
+                "operationId": "Add New User",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text",
+                                        "example": "Odai Nasser"
+                                    },
+                                    "email": {
+                                        "type": "text",
+                                        "example": "odai.karajah90@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "text",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User Created Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "User Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
