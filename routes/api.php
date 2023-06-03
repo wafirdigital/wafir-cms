@@ -17,15 +17,24 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::group(['prefix' => 'auth'], function(){
-    Route::post('register',    [UserAuthController::class, 'register']);
-    Route::post('login',       [UserAuthController::class, 'login']);
+
+Route::group(['prefix' => 'v1'], function(){
+
+    Route::group(['prefix' => 'auth'], function(){
+        Route::post('register',    [UserAuthController::class, 'register']);
+        Route::post('login',       [UserAuthController::class, 'login']);
+    });
+
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::resource('users',     UserController::class);
+        Route::resource('bids',      BidController::class);
+        Route::resource('products',  ProductController::class);
+    });
+
 });
 
-Route::group(['middleware' => 'auth:api', 'prefix'=> 'v1'], function(){
-    Route::resource('users',     UserController::class);
-    Route::resource('bids',      BidController::class);
-    Route::resource('products',  ProductController::class);
-});
+
+
+
 
 

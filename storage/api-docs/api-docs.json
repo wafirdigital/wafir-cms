@@ -5,30 +5,35 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/programs": {
+        "/api/v1/auth/register": {
             "post": {
                 "tags": [
-                    "Register"
+                    "Authentication"
                 ],
-                "summary": "Add New Program",
-                "description": "Add New Program",
-                "operationId": "Add New Programs",
+                "summary": "Add New User",
+                "description": "Add New User",
+                "operationId": "Add New User",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "title",
-                                    "description"
+                                    "name",
+                                    "email",
+                                    "password"
                                 ],
                                 "properties": {
-                                    "title": {
+                                    "name": {
                                         "type": "text",
-                                        "example": "Program No 1"
+                                        "example": "Odai Nasser"
                                     },
-                                    "description": {
+                                    "email": {
                                         "type": "text",
-                                        "example": " description Program No 1"
+                                        "example": "karajah90@icloud.com"
+                                    },
+                                    "password": {
+                                        "type": "text",
+                                        "example": "12345678"
                                     }
                                 },
                                 "type": "object"
@@ -41,7 +46,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Programs Created Successfully",
+                        "description": "User Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -49,7 +54,7 @@
                         }
                     },
                     "200": {
-                        "description": "Programs Created Successfully",
+                        "description": "User Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -78,14 +83,14 @@
                 ]
             }
         },
-        "/api/login": {
+        "/api/v1/auth/login": {
             "post": {
                 "tags": [
-                    "Login"
+                    "Authentication"
                 ],
                 "summary": "User Login",
-                "description": "Login User Here",
-                "operationId": "authLogin",
+                "description": "Login User",
+                "operationId": "Do Login",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {

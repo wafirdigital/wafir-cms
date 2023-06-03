@@ -9,46 +9,46 @@ use App\Models\User;
 class UserAuthController extends Controller
 {
     
-
     /**
-       * @OA\Post(
-       * path="/api/v1/programs",
-       * operationId="Add New Programs",
-       * tags={"Register"},
-       * summary="Add New Program",
-       * description="Add New Program",
-       * security={{ "apiAuth": {} }},
-       *     @OA\RequestBody(
-       *         @OA\JsonContent(),
-       *         @OA\MediaType(
-       *            mediaType="multipart/form-data",
-       *            @OA\Schema(
-       *               type="object",
-       *               required={"title", "description" },
-       *                @OA\Property(property="title", type="text", example="Program No 1"),
-       *                @OA\Property(property="description", type="text", example=" description Program No 1"),
-       *            ),
-       *        ),
-       *    ),
-       *      @OA\Response(
-       *          response=201,
-       *          description="Programs Created Successfully",
-       *          @OA\JsonContent()
-       *       ),
-       *      @OA\Response(
-       *          response=200,
-       *          description="Programs Created Successfully",
-       *          @OA\JsonContent()
-       *       ),
-       *      @OA\Response(
-       *          response=422,
-       *          description="Unprocessable Entity",
-       *          @OA\JsonContent()
-       *       ),
-       *      @OA\Response(response=400, description="Bad request"),
-       *      @OA\Response(response=404, description="Resource Not Found"),
-       * )
-       */
+     * @OA\Post(
+     * path="/api/v1/auth/register",
+     * operationId="Add New User",
+     * tags={"Authentication"},
+     * summary="Add New User",
+     * description="Add New User",
+     * security={{ "apiAuth": {} }},
+     *     @OA\RequestBody(
+     *         @OA\JsonContent(),
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *            @OA\Schema(
+     *               type="object",
+     *               required={"name", "email", "password" },
+     *                @OA\Property(property="name", type="text", example="Odai Nasser"),
+     *                @OA\Property(property="email", type="text", example="karajah90@icloud.com"),
+     *                @OA\Property(property="password", type="text", example="12345678"),
+     *            ),
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="User Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="User Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * )
+     */
     public function register(Request $request)
     {
         $this->validate($request, [
@@ -74,11 +74,11 @@ class UserAuthController extends Controller
 
     /**
     * @OA\Post(
-    * path="/api/login",
-    * operationId="authLogin",
-    * tags={"Login"},
+    * path="/api/v1/auth/login",
+    * operationId="Do Login",
+    * tags={"Authentication"},
     * summary="User Login",
-    * description="Login User Here",
+    * description="Login User",
     *     @OA\RequestBody(
     *         @OA\JsonContent(),
     *         @OA\MediaType(
