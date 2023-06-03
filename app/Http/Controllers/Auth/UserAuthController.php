@@ -13,7 +13,7 @@ class UserAuthController extends Controller
      * @OA\Post(
      * path="/api/v1/auth/register",
      * operationId="Add New User",
-     * tags={"Authentication"},
+     * tags={"Auth"},
      * summary="Add New User",
      * description="Add New User",
      * security={{ "apiAuth": {} }},
@@ -72,7 +72,7 @@ class UserAuthController extends Controller
     * @OA\Post(
     * path="/api/v1/auth/login",
     * operationId="Do Login",
-    * tags={"Authentication"},
+    * tags={"Auth"},
     * summary="User Login",
     * description="Login User",
     *     @OA\RequestBody(

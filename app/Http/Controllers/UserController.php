@@ -8,12 +8,40 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    
+
+
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     * path="/api/v1/users",
+     * operationId="Users",
+     * tags={"Users"},
+     * summary="Get All Users",
+     * description="Get All Users",
+     * security={{ "apiAuth": {} }},
+     *     
+     *      @OA\Response(
+     *          response=201,
+     *          description="Users Return Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Users Return Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * )
      */
     public function index()
     {
-        //
+        return "hi";
     }
 
     /**
