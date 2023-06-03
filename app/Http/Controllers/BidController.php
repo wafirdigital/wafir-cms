@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\BidRequest;
+use App\Http\Resources\UserResource;
 
 class BidController extends Controller
 {
@@ -25,7 +26,7 @@ class BidController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BidRequest $request)
     {
         //
     }
@@ -49,7 +50,7 @@ class BidController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BidRequest $request, string $id)
     {
         //
     }
