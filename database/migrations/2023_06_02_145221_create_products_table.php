@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('model');
-            $table->string('image');
             $table->string('description');
-            $table->decimal('starting_price');
+            $table->integer('starting_price');
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
-            $table->enum('status',['draft','active', 'closed']);
             $table->timestamps();
         });
     }
