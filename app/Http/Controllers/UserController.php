@@ -243,7 +243,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         if($user->delete()){
-            return response('User By ID Deleted Successfully',200);
+            return response('User By ID Deleted Successfully', 200);
         }
     }
 }
