@@ -18,7 +18,7 @@ class ProductResource extends JsonResource
         $user = User::findOrFail($this->user_id);
         return [
             'id' => $this->id,
-            'type' => 'users',
+            'type' => 'products',
             'attributes' => [
                 'name' => $this->name,
                 'model' => $this->model,

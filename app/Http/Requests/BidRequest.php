@@ -22,7 +22,9 @@ class BidRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'product_id' => 'required|integer',
+            'user_id' => 'required|integer',
+            'new_price' => 'required|integer',
         ];
     }
 }

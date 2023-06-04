@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('product_id')->foreign('product_id')->references('id')->on('products');
             $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
-            $table->decimal('bid');
+            $table->integer('new_price');
             $table->timestamps();
         });
     }
