@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        //
+        return $request;
     }
 
     /**
