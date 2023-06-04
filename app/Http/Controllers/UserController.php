@@ -85,9 +85,12 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $character= User::create($request->all());
-
-        return new UserResource($character);
+        $user= User::create([
+            'name' =>  $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+         ]);
+        return new UserResource($user);
     }
 
    
@@ -190,12 +193,13 @@ class UserController extends Controller
     public function update(UserRequest $request, string $id)
     {
         $user = User::findOrFail($id);
-        $user = $user->update($request);
-
+        $user->update([
+           'name' => ($request->name) ? $request->name : $user->name,
+           'email' => ($request->email) ? $request->email : $user->email,
+           'password' => ($request->password) ? bcrypt($request->password): $user->password,
+        ]);
         return new UserResource($user);
     }
-
-    
 
     /**
      * @OA\Delete(
