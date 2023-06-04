@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\ProductResource;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -67,7 +68,15 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        return $request;
+        $product= Product::create([
+            'name' =>  $request->name,
+            'model' => $request->model,
+            'description' => $request->description,
+            'starting_price' => $request->starting_price,
+            'created_by' => auth()->user()->id
+         ]);
+
+        return new ProductResource($product);
     }
 
     /**
