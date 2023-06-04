@@ -142,7 +142,7 @@ class BidController extends Controller
 
     /**
     * @OA\Put(
-    * path="/api/v1/bid/{id}",
+    * path="/api/v1/bids/{id}",
     * operationId="Update Bid By ID",
     * tags={"Bids"},
     * summary="Update Bid By ID",
