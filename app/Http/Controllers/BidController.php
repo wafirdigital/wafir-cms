@@ -85,7 +85,12 @@ class BidController extends Controller
      */
     public function store(BidRequest $request)
     {
-        //
+        $bid = Bid::create([
+            'product_id' =>  $request->product_id,
+            'user_id' => auth()->user()->id,
+            'new_price' => $request->new_price,
+         ]);
+        return new BidResource($bid);
     }
 
     /**
