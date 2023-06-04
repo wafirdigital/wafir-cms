@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id')->foreign('product_id')->references('id')->on('products');
-            $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
+            $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
             $table->decimal('bid');
             $table->timestamps();
         });

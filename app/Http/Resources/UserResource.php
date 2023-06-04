@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Product;
 
 class UserResource extends JsonResource
 {
@@ -14,6 +15,7 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $products = Product::where(['user_id' => $this->id])->get();
         return [
             'id' => $this->id,
             'type' => 'users',
@@ -21,6 +23,7 @@ class UserResource extends JsonResource
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => $this->password,
+                'products' => $products
             ]
         ];
     }

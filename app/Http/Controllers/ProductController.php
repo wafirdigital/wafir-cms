@@ -73,9 +73,8 @@ class ProductController extends Controller
             'model' => $request->model,
             'description' => $request->description,
             'starting_price' => $request->starting_price,
-            'created_by' => auth()->user()->id
+            'user_id' => auth()->user()->id
          ]);
-
         return new ProductResource($product);
     }
 

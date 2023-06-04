@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('model');
             $table->string('description');
             $table->integer('starting_price');
-            $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
+            $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
