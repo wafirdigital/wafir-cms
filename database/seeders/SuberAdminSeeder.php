@@ -16,8 +16,9 @@ class SuberAdminSeeder extends Seeder
     {
         DB::table('admins')->insert([
             'name' => Str::random(10),
-            'email' => Str::random(10).'@wafir.digital',
-            'password' => Hash::make('password'),
+            'email' => 'admin@admin.com',
+            'type' => 'super_admin',
+            'password' => Hash::make('12345678'),
         ]);
     }
 }
