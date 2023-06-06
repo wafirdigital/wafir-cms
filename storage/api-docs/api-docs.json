@@ -151,17 +151,17 @@
                 }
             }
         },
-        "/api/v1/bids": {
+        "/api/v1/categories": {
             "get": {
                 "tags": [
-                    "Bids"
+                    "Categories"
                 ],
-                "summary": "Get All Bids",
-                "description": "Get All Bids",
-                "operationId": "Bids",
+                "summary": "Get All Categories",
+                "description": "Get All Categories",
+                "operationId": "Categories",
                 "responses": {
                     "201": {
-                        "description": "Bids Return Successfully",
+                        "description": "Categories Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -169,7 +169,7 @@
                         }
                     },
                     "200": {
-                        "description": "Bids Return Successfully",
+                        "description": "Categories Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -199,11 +199,11 @@
             },
             "post": {
                 "tags": [
-                    "Bids"
+                    "Categorys"
                 ],
-                "summary": "Add New Bid",
-                "description": "Add New Bid",
-                "operationId": "Add New Bid",
+                "summary": "Add New Category",
+                "description": "Add New Category",
+                "operationId": "Add New Category",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -232,7 +232,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Bid Created Successfully",
+                        "description": "Category Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -240,7 +240,7 @@
                         }
                     },
                     "200": {
-                        "description": "Bid Created Successfully",
+                        "description": "Category Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -269,19 +269,19 @@
                 ]
             }
         },
-        "/api/v1/bids/{id}": {
+        "/api/v1/categories/{id}": {
             "get": {
                 "tags": [
-                    "Bids"
+                    "Categories"
                 ],
-                "summary": "Get Bid By Id",
-                "description": "Get Bid By Id",
-                "operationId": "Get Bid By Id",
+                "summary": "Get Category By Id",
+                "description": "Get Category By Id",
+                "operationId": "Get Category By Id",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Bid ID",
+                        "description": "Category ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -292,7 +292,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Bid Return Successfully",
+                        "description": "Category Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -300,7 +300,7 @@
                         }
                     },
                     "200": {
-                        "description": "Bid Return Successfully",
+                        "description": "Category Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -330,16 +330,16 @@
             },
             "put": {
                 "tags": [
-                    "Bids"
+                    "Categories"
                 ],
-                "summary": "Update Bid By ID",
-                "description": "Update Bid By ID",
+                "summary": "Update Category By ID",
+                "description": "Update Category By ID",
                 "operationId": "Update Bid By ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Bid ID",
+                        "description": "Category ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -376,7 +376,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Bid By ID Updated Successfully",
+                        "description": "Category By ID Updated Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -384,7 +384,7 @@
                         }
                     },
                     "200": {
-                        "description": "Bid By ID Updated Successfully",
+                        "description": "Category By ID Updated Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -414,16 +414,16 @@
             },
             "delete": {
                 "tags": [
-                    "Bids"
+                    "Categories"
                 ],
-                "summary": "Delete Bid By ID",
-                "description": "Delete Bid By ID",
-                "operationId": "Delete Bid By ID",
+                "summary": "Delete Category By ID",
+                "description": "Delete Category By ID",
+                "operationId": "Delete Category By ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Bid ID",
+                        "description": "Category ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -434,7 +434,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Bid By ID Return Successfully",
+                        "description": "Category By ID Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -442,7 +442,7 @@
                         }
                     },
                     "200": {
-                        "description": "Bid By ID Deleted Successfully",
+                        "description": "Category By ID Deleted Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
