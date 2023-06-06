@@ -47,8 +47,8 @@ class User extends Authenticatable
         return $this->hasMany(Product::class);
     }
 
-    public function bids(): HasMany
+    public function categories(): HasMany
     {
-        return $this->hasMany(Bid::class);
+        return $this->hasMany(Category::class);
     }
 }

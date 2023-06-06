@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\BidController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -26,9 +26,9 @@ Route::group(['prefix' => 'v1'], function(){
     });
 
     Route::group(['middleware' => 'auth:api'], function(){
-        Route::resource('users',     UserController::class);
-        Route::resource('bids',      BidController::class);
-        Route::resource('products',  ProductController::class);
+        Route::resource('users',           UserController::class);
+        Route::resource('categories',      CategoryController::class);
+        Route::resource('products',        ProductController::class);
     });
 
 });

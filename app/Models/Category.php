@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Bid extends Model
+class Category extends Model
 {
     use HasFactory;
-
+    protected $table = 'categories';
     protected $guarded = [];
 
     public function user(): BelongsTo
@@ -17,8 +17,4 @@ class Bid extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class);
-    }
 }

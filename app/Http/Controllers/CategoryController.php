@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BidRequest;
-use App\Http\Resources\BidResource;
-use App\Models\Bid;
+use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
 
-class BidController extends Controller
+class CategoryController extends Controller
 {
     
-
      /**
      * @OA\Get(
-     * path="/api/v1/bids",
-     * operationId="Bids",
-     * tags={"Bids"},
-     * summary="Get All Bids",
-     * description="Get All Bids",
+     * path="/api/v1/categories",
+     * operationId="Categories",
+     * tags={"Categories"},
+     * summary="Get All Categories",
+     * description="Get All Categories",
      * security={{ "apiAuth": {} }},
      *     
      *      @OA\Response(
      *          response=201,
-     *          description="Bids Return Successfully",
+     *          description="Categories Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Bids Return Successfully",
+     *          description="Categories Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -40,17 +39,17 @@ class BidController extends Controller
      */
     public function index()
     {
-        return BidResource::collection(Bid::paginate(10));
+        return CategoryResource::collection(Category::paginate(10));
     }
 
 
     /**
      * @OA\Post(
-     * path="/api/v1/bids",
-     * operationId="Add New Bid",
-     * tags={"Bids"},
-     * summary="Add New Bid",
-     * description="Add New Bid",
+     * path="/api/v1/categories",
+     * operationId="Add New Category",
+     * tags={"Categorys"},
+     * summary="Add New Category",
+     * description="Add New Category",
      * security={{ "apiAuth": {} }},
      *     @OA\RequestBody(
      *         @OA\JsonContent(),
@@ -66,12 +65,12 @@ class BidController extends Controller
      *    ),
      *      @OA\Response(
      *          response=201,
-     *          description="Bid Created Successfully",
+     *          description="Category Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Bid Created Successfully",
+     *          description="Category Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -83,28 +82,26 @@ class BidController extends Controller
      *      @OA\Response(response=404, description="Resource Not Found"),
      * )
      */
-    public function store(BidRequest $request)
+    public function store(CategoryRequest $request)
     {
-        $bid = Bid::create([
+        $category = Category::create([
             'product_id' =>  $request->product_id,
             'user_id' => auth()->user()->id,
             'new_price' => $request->new_price,
          ]);
-        return new BidResource($bid);
+        return new CategoryResource($category);
     }
-
-    
 
     /**
      * @OA\Get(
-     * path="/api/v1/bids/{id}",
-     * operationId="Get Bid By Id",
-     * tags={"Bids"},
-     * summary="Get Bid By Id",
-     * description="Get Bid By Id",
+     * path="/api/v1/categories/{id}",
+     * operationId="Get Category By Id",
+     * tags={"Categories"},
+     * summary="Get Category By Id",
+     * description="Get Category By Id",
      * security={{ "apiAuth": {} }},
      * @OA\Parameter(
-     *    description="Bid ID",
+     *    description="Category ID",
      *    in="path",
      *    name="id",
      *    required=true,
@@ -116,12 +113,12 @@ class BidController extends Controller
      * ),
      *      @OA\Response(
      *          response=201,
-     *          description="Bid Return Successfully",
+     *          description="Category Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Bid Return Successfully",
+     *          description="Category Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -135,21 +132,21 @@ class BidController extends Controller
      */
     public function show(string $id)
     {
-        $user = Bid::findOrFail($id);
-        return new BidResource($user);
+        $user = Category::findOrFail($id);
+        return new CategoryResource($user);
     }
 
 
     /**
     * @OA\Put(
-    * path="/api/v1/bids/{id}",
+    * path="/api/v1/categories/{id}",
     * operationId="Update Bid By ID",
-    * tags={"Bids"},
-    * summary="Update Bid By ID",
-    * description="Update Bid By ID",
+    * tags={"Categories"},
+    * summary="Update Category By ID",
+    * description="Update Category By ID",
     * security={{ "apiAuth": {} }},
     *        @OA\Parameter(
-    *       description="Bid ID",
+    *       description="Category ID",
     *       in="path",
     *       name="id",
     *       required=true,
@@ -173,12 +170,12 @@ class BidController extends Controller
     *    ),
     *      @OA\Response(
     *          response=201,
-    *          description="Bid By ID Updated Successfully",
+    *          description="Category By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
     *          response=200,
-    *          description="Bid By ID Updated Successfully",
+    *          description="Category By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
@@ -190,27 +187,27 @@ class BidController extends Controller
     *      @OA\Response(response=404, description="Resource Not Found"),
     * )
     */
-    public function update(BidRequest $request, string $id)
+    public function update(CategoryRequest $request, string $id)
     {
-        $bid = Bid::findOrFail($id);
+        $bid = Category::findOrFail($id);
         $bid->update([
            'product_id' => ($request->product_id) ? $request->product_id : $bid->product_id,
            'new_price' => ($request->new_price) ? $request->new_price : $bid->new_price,
         ]);
-        return new BidResource($bid);
+        return new CategoryResource($bid);
     }
 
 
      /**
      * @OA\Delete(
-     * path="/api/v1/bids/{id}",
-     * operationId="Delete Bid By ID",
-     * tags={"Bids"},
-     * summary="Delete Bid By ID",
-     * description="Delete Bid By ID",
+     * path="/api/v1/categories/{id}",
+     * operationId="Delete Category By ID",
+     * tags={"Categories"},
+     * summary="Delete Category By ID",
+     * description="Delete Category By ID",
      * security={{ "apiAuth": {} }},
      *   @OA\Parameter(
-     *       description="Bid ID",
+     *       description="Category ID",
      *       in="path",
      *       name="id",
      *       required=true,
@@ -222,12 +219,12 @@ class BidController extends Controller
      *   ),
      *      @OA\Response(
      *          response=201,
-     *          description="Bid By ID Return Successfully",
+     *          description="Category By ID Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Bid By ID Deleted Successfully",
+     *          description="Category By ID Deleted Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -241,7 +238,7 @@ class BidController extends Controller
      */
     public function destroy(string $id)
     {
-        $bid = Bid::findOrFail($id);
+        $bid = Category::findOrFail($id);
         if($bid->delete()){
             return response('Bid By ID Deleted Successfully', 200);
         }
