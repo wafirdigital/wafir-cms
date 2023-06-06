@@ -47,7 +47,7 @@ class CategoryController extends Controller
      * @OA\Post(
      * path="/api/v1/categories",
      * operationId="Add New Category",
-     * tags={"Categorys"},
+     * tags={"Categories"},
      * summary="Add New Category",
      * description="Add New Category",
      * security={{ "apiAuth": {} }},
