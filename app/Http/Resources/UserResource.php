@@ -15,15 +15,12 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $products = Product::where(['user_id' => $this->id])->get();
         return [
             'id' => $this->id,
             'type' => 'users',
             'attributes' => [
                 'name' => $this->name,
                 'email' => $this->email,
-                'password' => $this->password,
-                'products' => $products
             ]
         ];
     }

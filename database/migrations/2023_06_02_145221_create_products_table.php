@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->decimal('price');
-            $table->integer('user_id')->foreign('user_id')->references('id')->on('users');
+            $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
+            $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users');
+            $table->integer('deleted_by')->foreign('deleted_by')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

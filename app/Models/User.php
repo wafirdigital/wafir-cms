@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -40,7 +41,30 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ]; 
+    ];
+
+    protected static function boot()
+    {
+
+        parent::boot();
+
+        // updating created_by and updated_by when model is created
+        static::creating(function ($model) {
+            if (!$model->isDirty('created_by')) {
+                $model->created_by = !is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+            if (!$model->isDirty('updated_by')) {
+                $model->updated_by = !is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+        });
+
+        // updating updated_by when model is updated
+        static::updating(function ($model) {
+            if (!$model->isDirty('updated_by')) {
+                $model->updated_by = is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+        });
+    }
 
     public function products(): HasMany
     {

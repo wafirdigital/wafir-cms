@@ -16,16 +16,13 @@ class CategoryResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $product = Product::findOrFail($this->product_id);
-        $user = User::findOrFail($this->user_id);
 
         return [
             'id' => $this->id,
             'type' => 'bids',
             'attributes' => [
-                'new_price' => $this->new_price,
-                'user' => $user,
-                'product' => $product,
+                'name' => $this->name,
+                'description' => $this->description,
             ]
         ];
     }

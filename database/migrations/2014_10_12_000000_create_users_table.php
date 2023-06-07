@@ -18,8 +18,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('type',['admin','super_admin'])->default('admin');
+            $table->integer('created_by')->foreign('created_by')->references('id')->on('users')->nullable();
+            $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users')->nullable();
+            $table->integer('deleted_by')->foreign('deleted_by')->references('id')->on('users')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -87,7 +87,6 @@ class CategoryController extends Controller
         $category = Category::create([
             'name' =>  $request->name,
             'description' => $request->description,
-            'user_id' => auth()->user()->id
          ]);
         return new CategoryResource($category);
     }

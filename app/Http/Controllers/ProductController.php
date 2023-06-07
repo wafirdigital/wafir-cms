@@ -88,7 +88,6 @@ class ProductController extends Controller
             'name' =>  $request->name,
             'description' => $request->description,
             'price' => $request->price,
-            'user_id' => auth()->user()->id
          ]);
         return new ProductResource($product);
     }
