@@ -9,7 +9,6 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     
-
     /**
      * @OA\Get(
      * path="/api/v1/products",
@@ -57,11 +56,9 @@ class ProductController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"name", "model", "description", "starting_price" },
+     *               required={"name", "description"},
      *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
-     *               @OA\Property(property="model", type="integer", example="2019"),
      *               @OA\Property(property="description", type="text", example="Nice Care"),
-     *               @OA\Property(property="starting_price", type="integer", example="17500"),
      *            ),
      *        ),
      *    ),
@@ -88,9 +85,7 @@ class ProductController extends Controller
     {
         $product= Product::create([
             'name' =>  $request->name,
-            'model' => $request->model,
             'description' => $request->description,
-            'starting_price' => $request->starting_price,
             'user_id' => auth()->user()->id
          ]);
         return new ProductResource($product);
@@ -166,11 +161,9 @@ class ProductController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"name", "model", "description", "starting_price" },
+    *               required={"name", "description"},
     *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
-    *               @OA\Property(property="model", type="integer", example="2019"),
     *               @OA\Property(property="description", type="text", example="Nice Care"),
-    *               @OA\Property(property="starting_price", type="integer", example="17500"),
     *             ),
     *        ),
     *    ),
@@ -198,9 +191,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->update([
            'name' => ($request->name) ? $request->name : $product->name,
-           'model' => ($request->model) ? $request->model : $product->model,
            'description' => ($request->description) ? $request->description : $product->description,
-           'starting_price' => ($request->starting_price) ? $request->starting_price : $product->starting_price,
         ]);
         return new ProductResource($product);
     }

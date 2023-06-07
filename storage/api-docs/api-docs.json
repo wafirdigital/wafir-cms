@@ -209,17 +209,17 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "product_id",
-                                    "new_price"
+                                    "name",
+                                    "description"
                                 ],
                                 "properties": {
-                                    "product_id": {
-                                        "type": "integer",
-                                        "example": "1"
+                                    "name": {
+                                        "type": "text",
+                                        "example": "Toyota Corolla"
                                     },
-                                    "new_price": {
-                                        "type": "integer",
-                                        "example": "500"
+                                    "description": {
+                                        "type": "text",
+                                        "example": "Nice Care"
                                     }
                                 },
                                 "type": "object"
@@ -353,17 +353,17 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "product_id",
-                                    "new_price"
+                                    "name",
+                                    "description"
                                 ],
                                 "properties": {
-                                    "product_id": {
-                                        "type": "integer",
-                                        "example": "1"
+                                    "name": {
+                                        "type": "text",
+                                        "example": "Toyota Corolla"
                                     },
-                                    "new_price": {
-                                        "type": "integer",
-                                        "example": "500"
+                                    "description": {
+                                        "type": "text",
+                                        "example": "Nice Care"
                                     }
                                 },
                                 "type": "object"
@@ -530,26 +530,16 @@
                             "schema": {
                                 "required": [
                                     "name",
-                                    "model",
-                                    "description",
-                                    "starting_price"
+                                    "description"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "text",
                                         "example": "Toyota Corolla"
                                     },
-                                    "model": {
-                                        "type": "integer",
-                                        "example": "2019"
-                                    },
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Care"
-                                    },
-                                    "starting_price": {
-                                        "type": "integer",
-                                        "example": "17500"
                                     }
                                 },
                                 "type": "object"
@@ -684,26 +674,16 @@
                             "schema": {
                                 "required": [
                                     "name",
-                                    "model",
-                                    "description",
-                                    "starting_price"
+                                    "description"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "text",
                                         "example": "Toyota Corolla"
                                     },
-                                    "model": {
-                                        "type": "integer",
-                                        "example": "2019"
-                                    },
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Care"
-                                    },
-                                    "starting_price": {
-                                        "type": "integer",
-                                        "example": "17500"
                                     }
                                 },
                                 "type": "object"

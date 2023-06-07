@@ -57,9 +57,9 @@ class CategoryController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"product_id", "new_price"},
-     *               @OA\Property(property="product_id", type="integer", example="1"),
-     *               @OA\Property(property="new_price", type="integer", example="500"),
+    *                required={"name", "description"},
+    *                @OA\Property(property="name", type="text", example="Toyota Corolla"),
+    *                @OA\Property(property="description", type="text", example="Nice Care"),
      *            ),
      *        ),
      *    ),
@@ -85,9 +85,9 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = Category::create([
-            'product_id' =>  $request->product_id,
-            'user_id' => auth()->user()->id,
-            'new_price' => $request->new_price,
+            'name' =>  $request->name,
+            'description' => $request->description,
+            'user_id' => auth()->user()->id
          ]);
         return new CategoryResource($category);
     }
@@ -162,9 +162,9 @@ class CategoryController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"product_id", "new_price"},
-    *               @OA\Property(property="product_id", type="integer", example="1"),
-    *               @OA\Property(property="new_price", type="integer", example="500"),
+    *               required={"name", "description"},
+    *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
+    *               @OA\Property(property="description", type="text", example="Nice Care"),
     *             ),
     *        ),
     *    ),
@@ -189,12 +189,12 @@ class CategoryController extends Controller
     */
     public function update(CategoryRequest $request, string $id)
     {
-        $bid = Category::findOrFail($id);
-        $bid->update([
-           'product_id' => ($request->product_id) ? $request->product_id : $bid->product_id,
-           'new_price' => ($request->new_price) ? $request->new_price : $bid->new_price,
+        $category = Category::findOrFail($id);
+        $category->update([
+            'name' => ($request->name) ? $request->name : $category->name,
+            'description' => ($request->description) ? $request->description : $category->description, 
         ]);
-        return new CategoryResource($bid);
+        return new CategoryResource($category);
     }
 
 
