@@ -334,7 +334,7 @@
                 ],
                 "summary": "Update Category By ID",
                 "description": "Update Category By ID",
-                "operationId": "Update Bid By ID",
+                "operationId": "Update Category By ID",
                 "parameters": [
                     {
                         "name": "id",

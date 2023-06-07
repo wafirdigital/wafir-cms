@@ -15,7 +15,6 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $user = User::findOrFail($this->user_id);
         return [
             'id' => $this->id,
             'type' => 'products',
@@ -23,7 +22,6 @@ class ProductResource extends JsonResource
                 'name' => $this->name,
                 'description' => $this->description,
                 'price' => $this->price,
-                'user' => $user,
             ]
         ];
     }

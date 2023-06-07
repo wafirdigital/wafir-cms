@@ -139,7 +139,7 @@ class CategoryController extends Controller
     /**
     * @OA\Put(
     * path="/api/v1/categories/{id}",
-    * operationId="Update Bid By ID",
+    * operationId="Update Category By ID",
     * tags={"Categories"},
     * summary="Update Category By ID",
     * description="Update Category By ID",
@@ -237,9 +237,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $bid = Category::findOrFail($id);
-        if($bid->delete()){
-            return response('Bid By ID Deleted Successfully', 200);
+        $category = Category::findOrFail($id);
+        if($category->delete()){
+            return response('Category By ID Deleted Successfully', 200);
         }
     }
 }
