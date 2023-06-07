@@ -56,9 +56,10 @@ class ProductController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"name", "description"},
-     *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
-     *               @OA\Property(property="description", type="text", example="Nice Care"),
+     *               required={"name", "description", "price"},
+     *               @OA\Property(property="name", type="text", example="I Phone 14"),
+     *               @OA\Property(property="description", type="text", example="Nice Phone"),
+     *               @OA\Property(property="price", type="decemal", example="700.5"),
      *            ),
      *        ),
      *    ),
@@ -86,6 +87,7 @@ class ProductController extends Controller
         $product= Product::create([
             'name' =>  $request->name,
             'description' => $request->description,
+            'price' => $request->price,
             'user_id' => auth()->user()->id
          ]);
         return new ProductResource($product);
@@ -161,9 +163,10 @@ class ProductController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"name", "description"},
-    *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
-    *               @OA\Property(property="description", type="text", example="Nice Care"),
+    *               required={"name", "description", "price"},
+    *               @OA\Property(property="name", type="text", example="I Phone 14"),
+    *               @OA\Property(property="description", type="text", example="Nice Phone"),
+    *               @OA\Property(property="price", type="decemal", example="700.5"),
     *             ),
     *        ),
     *    ),
@@ -192,6 +195,7 @@ class ProductController extends Controller
         $product->update([
            'name' => ($request->name) ? $request->name : $product->name,
            'description' => ($request->description) ? $request->description : $product->description,
+           'price' => ($request->price) ? $request->price : $product->price,
         ]);
         return new ProductResource($product);
     }

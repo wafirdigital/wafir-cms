@@ -530,16 +530,21 @@
                             "schema": {
                                 "required": [
                                     "name",
-                                    "description"
+                                    "description",
+                                    "price"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "text",
-                                        "example": "Toyota Corolla"
+                                        "example": "I Phone 14"
                                     },
                                     "description": {
                                         "type": "text",
-                                        "example": "Nice Care"
+                                        "example": "Nice Phone"
+                                    },
+                                    "price": {
+                                        "type": "decemal",
+                                        "example": "700.5"
                                     }
                                 },
                                 "type": "object"
@@ -674,16 +679,21 @@
                             "schema": {
                                 "required": [
                                     "name",
-                                    "description"
+                                    "description",
+                                    "price"
                                 ],
                                 "properties": {
                                     "name": {
                                         "type": "text",
-                                        "example": "Toyota Corolla"
+                                        "example": "I Phone 14"
                                     },
                                     "description": {
                                         "type": "text",
-                                        "example": "Nice Care"
+                                        "example": "Nice Phone"
+                                    },
+                                    "price": {
+                                        "type": "decemal",
+                                        "example": "700.5"
                                     }
                                 },
                                 "type": "object"
