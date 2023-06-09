@@ -44,12 +44,6 @@ class AppModel extends Model
                 $model->updated_by = auth()->user()->id;
             }
         });
-
-        static::deleting(function ($model) {
-            if (!$model->isDirty('deleted_by')) {
-                $model->deleted_by = auth()->user()->id;
-            }
-        });
     }
 
     public function user(): BelongsTo
