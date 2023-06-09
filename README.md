@@ -1,6 +1,9 @@
-## About Laravel Dashboard API
+## Installation
 
-Laravel dashboard API built by Laravel 10 and (Swagger, Laravel Passport, Pusher) packages.
+- php artisan migrate:refresh --seed
+- php artisan key:generate
+- php artisan passport:install
+- php artisan l5-swagger:generate
 
 
 ## License
