@@ -11,21 +11,21 @@ class PostController extends Controller
     
     /**
      * @OA\Get(
-     * path="/api/v1/products",
-     * operationId="Products",
-     * tags={"Products"},
-     * summary="Get All Products",
-     * description="Get All Products",
+     * path="/api/v1/posts",
+     * operationId="Posts",
+     * tags={"Posts"},
+     * summary="Get All Posts",
+     * description="Get All Posts",
      * security={{ "apiAuth": {} }},
      *     
      *      @OA\Response(
      *          response=201,
-     *          description="Products Return Successfully",
+     *          description="Posts Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Products Return Successfully",
+     *          description="Posts Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -44,11 +44,11 @@ class PostController extends Controller
     
     /**
      * @OA\Post(
-     * path="/api/v1/products",
-     * operationId="Add New Product",
-     * tags={"Products"},
-     * summary="Add New Product",
-     * description="Add New Product",
+     * path="/api/v1/posts",
+     * operationId="Add New Post",
+     * tags={"Posts"},
+     * summary="Add New Post",
+     * description="Add New Post",
      * security={{ "apiAuth": {} }},
      *     @OA\RequestBody(
      *         @OA\JsonContent(),
@@ -65,12 +65,12 @@ class PostController extends Controller
      *    ),
      *      @OA\Response(
      *          response=201,
-     *          description="Product Created Successfully",
+     *          description="Post Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Product Created Successfully",
+     *          description="Post Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -84,24 +84,24 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $product= Post::create([
+        $post= Post::create([
             'name' =>  $request->name,
             'description' => $request->description,
             'price' => $request->price,
          ]);
-        return new PostResource($product);
+        return new PostResource($post);
     }
 
     /**
      * @OA\Get(
-     * path="/api/v1/products/{id}",
-     * operationId="Get Product By Id",
-     * tags={"Products"},
-     * summary="Get Product By Id",
-     * description="Get Product By Id",
+     * path="/api/v1/posts/{id}",
+     * operationId="Get Post By Id",
+     * tags={"Posts"},
+     * summary="Get Post By Id",
+     * description="Get Post By Id",
      * security={{ "apiAuth": {} }},
      * @OA\Parameter(
-     *    description="Product ID",
+     *    description="Post ID",
      *    in="path",
      *    name="id",
      *    required=true,
@@ -113,12 +113,12 @@ class PostController extends Controller
      * ),
      *      @OA\Response(
      *          response=201,
-     *          description="Product Return Successfully",
+     *          description="Post Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Product Return Successfully",
+     *          description="Post Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -132,21 +132,21 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $user = Post::findOrFail($id);
-        return new PostResource($user);
+        $post = Post::findOrFail($id);
+        return new PostResource($post);
     }
 
     
     /**
     * @OA\Put(
-    * path="/api/v1/products/{id}",
-    * operationId="Update Product By ID",
-    * tags={"Products"},
-    * summary="Update Product By ID",
-    * description="Update Product By ID",
+    * path="/api/v1/posts/{id}",
+    * operationId="Update Post By ID",
+    * tags={"Posts"},
+    * summary="Update Post By ID",
+    * description="Update Post By ID",
     * security={{ "apiAuth": {} }},
     *        @OA\Parameter(
-    *       description="Product ID",
+    *       description="Post ID",
     *       in="path",
     *       name="id",
     *       required=true,
@@ -171,12 +171,12 @@ class PostController extends Controller
     *    ),
     *      @OA\Response(
     *          response=201,
-    *          description="Product By ID Updated Successfully",
+    *          description="Post By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
     *          response=200,
-    *          description="Product By ID Updated Successfully",
+    *          description="Post By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
@@ -190,26 +190,26 @@ class PostController extends Controller
     */
     public function update(PostRequest $request, string $id)
     {
-        $product = Post::findOrFail($id);
-        $product->update([
-           'name' => ($request->name) ? $request->name : $product->name,
-           'description' => ($request->description) ? $request->description : $product->description,
-           'price' => ($request->price) ? $request->price : $product->price,
+        $post = Post::findOrFail($id);
+        $post->update([
+           'name' => ($request->name) ? $request->name : $post->name,
+           'description' => ($request->description) ? $request->description : $post->description,
+           'price' => ($request->price) ? $request->price : $post->price,
         ]);
-        return new PostResource($product);
+        return new PostResource($post);
     }
 
     
     /**
      * @OA\Delete(
-     * path="/api/v1/products/{id}",
-     * operationId="Delete Product By ID",
-     * tags={"Products"},
-     * summary="Delete Product By ID",
-     * description="Delete Product By ID",
+     * path="/api/v1/posts/{id}",
+     * operationId="Delete Post By ID",
+     * tags={"Posts"},
+     * summary="Delete Post By ID",
+     * description="Delete Post By ID",
      * security={{ "apiAuth": {} }},
      *   @OA\Parameter(
-     *       description="Product ID",
+     *       description="Post ID",
      *       in="path",
      *       name="id",
      *       required=true,
@@ -221,12 +221,12 @@ class PostController extends Controller
      *   ),
      *      @OA\Response(
      *          response=201,
-     *          description="Product By ID Return Successfully",
+     *          description="Post By ID Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Product By ID Deleted Successfully",
+     *          description="Post By ID Deleted Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -240,9 +240,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Post::findOrFail($id);
-        if($product->delete()){
-            return response('Product By ID Deleted Successfully', 200);
+        $post = Post::findOrFail($id);
+        if($post->delete()){
+            return response('Post By ID Deleted Successfully', 200);
         }
     }
 }

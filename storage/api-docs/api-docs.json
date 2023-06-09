@@ -471,17 +471,17 @@
                 ]
             }
         },
-        "/api/v1/products": {
+        "/api/v1/posts": {
             "get": {
                 "tags": [
-                    "Products"
+                    "Posts"
                 ],
-                "summary": "Get All Products",
-                "description": "Get All Products",
-                "operationId": "Products",
+                "summary": "Get All Posts",
+                "description": "Get All Posts",
+                "operationId": "Posts",
                 "responses": {
                     "201": {
-                        "description": "Products Return Successfully",
+                        "description": "Posts Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -489,7 +489,7 @@
                         }
                     },
                     "200": {
-                        "description": "Products Return Successfully",
+                        "description": "Posts Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -519,11 +519,11 @@
             },
             "post": {
                 "tags": [
-                    "Products"
+                    "Posts"
                 ],
-                "summary": "Add New Product",
-                "description": "Add New Product",
-                "operationId": "Add New Product",
+                "summary": "Add New Post",
+                "description": "Add New Post",
+                "operationId": "Add New Post",
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -557,7 +557,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Product Created Successfully",
+                        "description": "Post Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -565,7 +565,7 @@
                         }
                     },
                     "200": {
-                        "description": "Product Created Successfully",
+                        "description": "Post Created Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -594,19 +594,19 @@
                 ]
             }
         },
-        "/api/v1/products/{id}": {
+        "/api/v1/posts/{id}": {
             "get": {
                 "tags": [
-                    "Products"
+                    "Posts"
                 ],
-                "summary": "Get Product By Id",
-                "description": "Get Product By Id",
-                "operationId": "Get Product By Id",
+                "summary": "Get Post By Id",
+                "description": "Get Post By Id",
+                "operationId": "Get Post By Id",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Product ID",
+                        "description": "Post ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -617,7 +617,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Product Return Successfully",
+                        "description": "Post Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -625,7 +625,7 @@
                         }
                     },
                     "200": {
-                        "description": "Product Return Successfully",
+                        "description": "Post Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -655,16 +655,16 @@
             },
             "put": {
                 "tags": [
-                    "Products"
+                    "Posts"
                 ],
-                "summary": "Update Product By ID",
-                "description": "Update Product By ID",
-                "operationId": "Update Product By ID",
+                "summary": "Update Post By ID",
+                "description": "Update Post By ID",
+                "operationId": "Update Post By ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Product ID",
+                        "description": "Post ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -706,7 +706,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Product By ID Updated Successfully",
+                        "description": "Post By ID Updated Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -714,7 +714,7 @@
                         }
                     },
                     "200": {
-                        "description": "Product By ID Updated Successfully",
+                        "description": "Post By ID Updated Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -744,16 +744,16 @@
             },
             "delete": {
                 "tags": [
-                    "Products"
+                    "Posts"
                 ],
-                "summary": "Delete Product By ID",
-                "description": "Delete Product By ID",
-                "operationId": "Delete Product By ID",
+                "summary": "Delete Post By ID",
+                "description": "Delete Post By ID",
+                "operationId": "Delete Post By ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Product ID",
+                        "description": "Post ID",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -764,7 +764,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Product By ID Return Successfully",
+                        "description": "Post By ID Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -772,7 +772,7 @@
                         }
                     },
                     "200": {
-                        "description": "Product By ID Deleted Successfully",
+                        "description": "Post By ID Deleted Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
