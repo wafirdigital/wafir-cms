@@ -62,12 +62,6 @@ class User extends Authenticatable
                 $model->updated_by = is_null(auth()->user()) ? auth()->user()->id : null;
             }
         });
-
-        static::deleting(function ($model) {
-            if (!$model->isDirty('deleted_by')) {
-                $model->deleted_by = is_null(auth()->user()) ? auth()->user()->id : null;
-            }
-        });
     }
 
     public function products(): HasMany
