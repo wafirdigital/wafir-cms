@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Product extends AppModel
+class Post extends AppModel
 {
     use HasFactory, SoftDeletes;
 

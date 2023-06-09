@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductRequest;
-use App\Http\Resources\ProductResource;
-use App\Models\Product;
+use App\Http\Requests\PostRequest;
+use App\Http\Resources\PostResource;
+use App\Models\Post;
 
-class ProductController extends Controller
+class PostController extends Controller
 {
     
     /**
@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection(Product::paginate(10));
+        return PostResource::collection(Post::paginate(10));
     }
     
     /**
@@ -82,14 +82,14 @@ class ProductController extends Controller
      *      @OA\Response(response=404, description="Resource Not Found"),
      * )
      */
-    public function store(ProductRequest $request)
+    public function store(PostRequest $request)
     {
-        $product= Product::create([
+        $product= Post::create([
             'name' =>  $request->name,
             'description' => $request->description,
             'price' => $request->price,
          ]);
-        return new ProductResource($product);
+        return new PostResource($product);
     }
 
     /**
@@ -132,8 +132,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $user = Product::findOrFail($id);
-        return new ProductResource($user);
+        $user = Post::findOrFail($id);
+        return new PostResource($user);
     }
 
     
@@ -188,15 +188,15 @@ class ProductController extends Controller
     *      @OA\Response(response=404, description="Resource Not Found"),
     * )
     */
-    public function update(ProductRequest $request, string $id)
+    public function update(PostRequest $request, string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Post::findOrFail($id);
         $product->update([
            'name' => ($request->name) ? $request->name : $product->name,
            'description' => ($request->description) ? $request->description : $product->description,
            'price' => ($request->price) ? $request->price : $product->price,
         ]);
-        return new ProductResource($product);
+        return new PostResource($product);
     }
 
     
@@ -240,7 +240,7 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Post::findOrFail($id);
         if($product->delete()){
             return response('Product By ID Deleted Successfully', 200);
         }
