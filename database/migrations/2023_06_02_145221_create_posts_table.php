@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->string('description');
-            $table->decimal('price');
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
             $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users');
             $table->integer('deleted_by')->foreign('deleted_by')->references('id')->on('users')->nullable();

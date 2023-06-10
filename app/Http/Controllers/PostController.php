@@ -56,10 +56,9 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"name", "description", "price"},
-     *               @OA\Property(property="name", type="text", example="I Phone 14"),
+     *               required={"title", "description", "price"},
+     *               @OA\Property(property="title", type="text", example="I Phone 14"),
      *               @OA\Property(property="description", type="text", example="Nice Phone"),
-     *               @OA\Property(property="price", type="decemal", example="700.5"),
      *            ),
      *        ),
      *    ),
@@ -87,7 +86,6 @@ class PostController extends Controller
         $post= Post::create([
             'name' =>  $request->name,
             'description' => $request->description,
-            'price' => $request->price,
          ]);
         return new PostResource($post);
     }
@@ -162,10 +160,9 @@ class PostController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"name", "description", "price"},
-    *               @OA\Property(property="name", type="text", example="I Phone 14"),
+    *               required={"title", "description", "price"},
+    *               @OA\Property(property="title", type="text", example="I Phone 14"),
     *               @OA\Property(property="description", type="text", example="Nice Phone"),
-    *               @OA\Property(property="price", type="decemal", example="700.5"),
     *             ),
     *        ),
     *    ),
@@ -194,7 +191,6 @@ class PostController extends Controller
         $post->update([
            'name' => ($request->name) ? $request->name : $post->name,
            'description' => ($request->description) ? $request->description : $post->description,
-           'price' => ($request->price) ? $request->price : $post->price,
         ]);
         return new PostResource($post);
     }
