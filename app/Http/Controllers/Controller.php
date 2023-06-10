@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 /**
  * @OA\Info(
- *    title="Application API",
+ *    title="WAFIR CMS API",
  *    version="1.0.0",
  * )
  */
