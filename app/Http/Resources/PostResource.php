@@ -16,11 +16,10 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => 'products',
+            'type' => 'post',
             'attributes' => [
-                'name' => $this->name,
+                'title' => $this->title,
                 'description' => $this->description,
-                'price' => $this->price,
             ]
         ];
     }

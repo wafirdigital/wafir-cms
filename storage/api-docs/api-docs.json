@@ -576,22 +576,17 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name",
-                                    "description",
-                                    "price"
+                                    "title",
+                                    "description"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "title": {
                                         "type": "text",
                                         "example": "I Phone 14"
                                     },
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Phone"
-                                    },
-                                    "price": {
-                                        "type": "decemal",
-                                        "example": "700.5"
                                     }
                                 },
                                 "type": "object"
@@ -725,22 +720,17 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name",
-                                    "description",
-                                    "price"
+                                    "title",
+                                    "description"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "title": {
                                         "type": "text",
                                         "example": "I Phone 14"
                                     },
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Phone"
-                                    },
-                                    "price": {
-                                        "type": "decemal",
-                                        "example": "700.5"
                                     }
                                 },
                                 "type": "object"

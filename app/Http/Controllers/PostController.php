@@ -56,7 +56,7 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"title", "description", "price"},
+     *               required={"title", "description"},
      *               @OA\Property(property="title", type="text", example="I Phone 14"),
      *               @OA\Property(property="description", type="text", example="Nice Phone"),
      *            ),
@@ -84,7 +84,7 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $post= Post::create([
-            'name' =>  $request->name,
+            'title' =>  $request->title,
             'description' => $request->description,
          ]);
         return new PostResource($post);
@@ -160,7 +160,7 @@ class PostController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"title", "description", "price"},
+    *               required={"title", "description"},
     *               @OA\Property(property="title", type="text", example="I Phone 14"),
     *               @OA\Property(property="description", type="text", example="Nice Phone"),
     *             ),
@@ -189,7 +189,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->update([
-           'name' => ($request->name) ? $request->name : $post->name,
+           'title' => ($request->title) ? $request->title : $post->title,
            'description' => ($request->description) ? $request->description : $post->description,
         ]);
         return new PostResource($post);
