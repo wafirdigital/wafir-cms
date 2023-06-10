@@ -1,6 +1,6 @@
 ## Installation
 
-- php artisan migrate:refresh --seed
+- php artisan migrate --seed
 - php artisan key:generate
 - php artisan passport:install
 - php artisan l5-swagger:generate
