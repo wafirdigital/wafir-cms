@@ -4,10 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Models\Product;
-use App\Models\User;
 
-class CategoryResource extends JsonResource
+class PageResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +16,10 @@ class CategoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => 'categories',
+            'type' => 'pages',
             'attributes' => [
                 'name' => $this->name,
+                'title' => $this->title,
                 'description' => $this->description,
             ]
         ];
