@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\MediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,6 @@ use App\Http\Controllers\TagController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
 
 Route::group(['prefix' => 'v1'], function(){
 
@@ -31,6 +31,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::resource('categories',  CategoryController::class);
         Route::resource('posts',       PostController::class);
         Route::resource('tags',        TagController::class);
+        Route::resource('media',      MediaController::class);
     });
 
 });

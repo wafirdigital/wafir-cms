@@ -471,17 +471,17 @@
                 ]
             }
         },
-        "/api/v1/pages": {
+        "/api/v1/media": {
             "get": {
                 "tags": [
-                    "Pages"
+                    "Media"
                 ],
-                "summary": "Get All Pages",
-                "description": "Get All Pages",
-                "operationId": "Pages",
+                "summary": "Get All Media",
+                "description": "Get All Media",
+                "operationId": "Media",
                 "responses": {
                     "201": {
-                        "description": "Pages Return Successfully",
+                        "description": "Media Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -489,7 +489,7 @@
                         }
                     },
                     "200": {
-                        "description": "Pages Return Successfully",
+                        "description": "Media Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}

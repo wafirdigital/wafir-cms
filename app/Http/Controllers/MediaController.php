@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PageRequest;
-use App\Http\Resources\PageResource;
-use App\Models\Page;
+use App\Http\Requests\MediaRequest;
+use App\Http\Resources\MediaResource;
+use App\Models\Media;
 
-class PageController extends Controller
+class MediaController extends Controller
 {
    
 
     /**
      * @OA\Get(
-     * path="/api/v1/pages",
-     * operationId="Pages",
-     * tags={"Pages"},
-     * summary="Get All Pages",
-     * description="Get All Pages",
+     * path="/api/v1/media",
+     * operationId="Media",
+     * tags={"Media"},
+     * summary="Get All Media",
+     * description="Get All Media",
      * security={{ "apiAuth": {} }},
      *     
      *      @OA\Response(
      *          response=201,
-     *          description="Pages Return Successfully",
+     *          description="Media Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Pages Return Successfully",
+     *          description="Media Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -40,7 +40,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return PageResource::collection(Page::paginate(10));
+        return MediaResource::collection(Media::paginate(10));
     }
 
     /**
@@ -54,7 +54,7 @@ class PageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PageRequest $request)
+    public function store(MediaRequest $request)
     {
         //
     }
@@ -78,7 +78,7 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PageRequest $request, string $id)
+    public function update(MediaRequest $request, string $id)
     {
         //
     }
