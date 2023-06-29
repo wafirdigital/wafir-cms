@@ -1,3 +1,5 @@
+<p align="center"><img src="/images/logo.png?1" alt="wink logo"></p>
+
 ## Installation
 
 - php artisan migrate --seed
