@@ -11,5 +11,6 @@ class Media extends AppModel
     use HasFactory, SoftDeletes;
     
     protected $guarded = [];
+    protected $table = 'media';
 
 }
