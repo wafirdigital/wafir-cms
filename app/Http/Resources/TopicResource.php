@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Product;
 use App\Models\User;
 
-class CategoryResource extends JsonResource
+class TopicResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

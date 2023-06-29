@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\AppModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Media extends AppModel
+
+class Media extends Model
 {
     use HasFactory, SoftDeletes;
     

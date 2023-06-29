@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\AppModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Category extends AppModel
+class Topic extends Model
 {
     use HasFactory, SoftDeletes;
-
-    protected $table = 'categories';
     protected $guarded = [];
 
 }

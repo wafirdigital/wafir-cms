@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
+use App\Http\Requests\TopicRequest;
+use App\Http\Resources\TopicResource;
+use App\Models\Topic;
 
-class CategoryController extends Controller
+class TopicController extends Controller
 {
     
      /**
      * @OA\Get(
-     * path="/api/v1/categories",
-     * operationId="Categories",
-     * tags={"Categories"},
-     * summary="Get All Categories",
-     * description="Get All Categories",
+     * path="/api/v1/topics",
+     * operationId="Topics",
+     * tags={"Topics"},
+     * summary="Get All Topics",
+     * description="Get All Topics",
      * security={{ "apiAuth": {} }},
      *     
      *      @OA\Response(
      *          response=201,
-     *          description="Categories Return Successfully",
+     *          description="Topics Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Categories Return Successfully",
+     *          description="Topics Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -39,17 +39,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection(Category::paginate(10));
+        return TopicResource::collection(Topic::paginate(10));
     }
 
 
     /**
      * @OA\Post(
-     * path="/api/v1/categories",
-     * operationId="Add New Category",
-     * tags={"Categories"},
-     * summary="Add New Category",
-     * description="Add New Category",
+     * path="/api/v1/topics",
+     * operationId="Add New Topic",
+     * tags={"Topics"},
+     * summary="Add New Topic",
+     * description="Add New Topic",
      * security={{ "apiAuth": {} }},
      *     @OA\RequestBody(
      *         @OA\JsonContent(),
@@ -65,12 +65,12 @@ class CategoryController extends Controller
      *    ),
      *      @OA\Response(
      *          response=201,
-     *          description="Category Created Successfully",
+     *          description="Topic Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Category Created Successfully",
+     *          description="Topic Created Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -82,25 +82,25 @@ class CategoryController extends Controller
      *      @OA\Response(response=404, description="Resource Not Found"),
      * )
      */
-    public function store(CategoryRequest $request)
+    public function store(TopicRequest $request)
     {
-        $category = Category::create([
+        $category = Topic::create([
             'name' =>  $request->name,
             'description' => $request->description,
          ]);
-        return new CategoryResource($category);
+        return new TopicResource($category);
     }
 
     /**
      * @OA\Get(
-     * path="/api/v1/categories/{id}",
-     * operationId="Get Category By Id",
-     * tags={"Categories"},
-     * summary="Get Category By Id",
-     * description="Get Category By Id",
+     * path="/api/v1/topics/{id}",
+     * operationId="Get Topic By Id",
+     * tags={"Topics"},
+     * summary="Get Topic By Id",
+     * description="Get Topic By Id",
      * security={{ "apiAuth": {} }},
      * @OA\Parameter(
-     *    description="Category ID",
+     *    description="Topic ID",
      *    in="path",
      *    name="id",
      *    required=true,
@@ -112,12 +112,12 @@ class CategoryController extends Controller
      * ),
      *      @OA\Response(
      *          response=201,
-     *          description="Category Return Successfully",
+     *          description="Topic Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Category Return Successfully",
+     *          description="Topic Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -131,21 +131,21 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        $user = Category::findOrFail($id);
-        return new CategoryResource($user);
+        $user = Topic::findOrFail($id);
+        return new TopicResource($user);
     }
 
 
     /**
     * @OA\Put(
-    * path="/api/v1/categories/{id}",
-    * operationId="Update Category By ID",
-    * tags={"Categories"},
-    * summary="Update Category By ID",
-    * description="Update Category By ID",
+    * path="/api/v1/topics/{id}",
+    * operationId="Update Topic By ID",
+    * tags={"Topics"},
+    * summary="Update Topic By ID",
+    * description="Update Topic By ID",
     * security={{ "apiAuth": {} }},
     *        @OA\Parameter(
-    *       description="Category ID",
+    *       description="Topic ID",
     *       in="path",
     *       name="id",
     *       required=true,
@@ -169,12 +169,12 @@ class CategoryController extends Controller
     *    ),
     *      @OA\Response(
     *          response=201,
-    *          description="Category By ID Updated Successfully",
+    *          description="Topic By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
     *          response=200,
-    *          description="Category By ID Updated Successfully",
+    *          description="Topic By ID Updated Successfully",
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(
@@ -186,27 +186,27 @@ class CategoryController extends Controller
     *      @OA\Response(response=404, description="Resource Not Found"),
     * )
     */
-    public function update(CategoryRequest $request, string $id)
+    public function update(TopicRequest $request, string $id)
     {
-        $category = Category::findOrFail($id);
+        $category = Topic::findOrFail($id);
         $category->update([
             'name' => ($request->name) ? $request->name : $category->name,
             'description' => ($request->description) ? $request->description : $category->description, 
         ]);
-        return new CategoryResource($category);
+        return new TopicResource($category);
     }
 
 
      /**
      * @OA\Delete(
-     * path="/api/v1/categories/{id}",
-     * operationId="Delete Category By ID",
-     * tags={"Categories"},
-     * summary="Delete Category By ID",
-     * description="Delete Category By ID",
+     * path="/api/v1/topics/{id}",
+     * operationId="Delete Topic By ID",
+     * tags={"Topics"},
+     * summary="Delete Topic By ID",
+     * description="Delete Topic By ID",
      * security={{ "apiAuth": {} }},
      *   @OA\Parameter(
-     *       description="Category ID",
+     *       description="Topic ID",
      *       in="path",
      *       name="id",
      *       required=true,
@@ -218,12 +218,12 @@ class CategoryController extends Controller
      *   ),
      *      @OA\Response(
      *          response=201,
-     *          description="Category By ID Return Successfully",
+     *          description="Topic By ID Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Category By ID Deleted Successfully",
+     *          description="Topic By ID Deleted Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -237,7 +237,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::findOrFail($id);
+        $category = Topic::findOrFail($id);
         if($category->delete()){
             return response('Category By ID Deleted Successfully', 200);
         }

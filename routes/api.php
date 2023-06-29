@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TopicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\MediaController;
@@ -28,10 +28,10 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::resource('users',       UserController::class);
-        Route::resource('categories',  CategoryController::class);
+        Route::resource('topics',      TopicController::class);
         Route::resource('posts',       PostController::class);
         Route::resource('tags',        TagController::class);
-        Route::resource('media',      MediaController::class);
+        Route::resource('media',       MediaController::class);
     });
 
 });
