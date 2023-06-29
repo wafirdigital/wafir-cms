@@ -1,4 +1,4 @@
-<p align="center"><img src="/images/logo.png?1" alt="wink logo"></p>
+<p align="center"><img src="/resources/images/logo.png?1" alt="WAFIR publisher logo"></p>
 
 ## Installation
 
