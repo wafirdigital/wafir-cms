@@ -1,4 +1,4 @@
-<p align="center"><img src="/resources/images/logo.png?1" alt="WAFIR publisher logo" width="750" height="400"></p>
+<p align="center"><img src="/resources/images/logo.png?1" alt="WAFIR publisher logo" width="800" height="400"></p>
 
 ## Installation
 
