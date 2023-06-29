@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('media_id')->foreign('media_id')->references('id')->on('media');
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
             $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users');
-            $table->integer('deleted_by')->foreign('deleted_by')->references('id')->on('users')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

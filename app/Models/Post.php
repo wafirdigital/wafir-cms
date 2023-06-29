@@ -14,7 +14,26 @@ class Post extends Model
 
     protected $guarded = [];
 
-    protected $table = 'post_topic';
+    protected static function boot()
+    {
+
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (!$model->isDirty('created_by')) {
+                $model->created_by = !is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+            if (!$model->isDirty('updated_by')) {
+                $model->updated_by = !is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+        });
+
+        static::updating(function ($model) {
+            if (!$model->isDirty('updated_by')) {
+                $model->updated_by = is_null(auth()->user()) ? auth()->user()->id : null;
+            }
+        });
+    }
 
     public function user(): BelongsTo
     {

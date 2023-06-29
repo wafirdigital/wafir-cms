@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PostTopic extends Model
 {
     use HasFactory;
+    protected $table = 'post_topic';
 }
