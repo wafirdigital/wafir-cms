@@ -14,10 +14,10 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'first_name' =>  'Suber',
+            'first_name' =>  'WAFIR',
             'last_name' =>   'Admin',
-            'email' => 'super_admin@wafir.digital',
-            'type' =>  'super_admin',
+            'email' => 'admin@wafir.digital',
+            'type' =>  'admin',
             'password' => Hash::make('12345678'),
         ]);
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('type',['admin','super_admin'])->default('admin');
+            $table->enum('type',['admin','author'])->default('author');
             $table->string('image')->nullable();
             $table->boolean('status')->default(true);
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users')->nullable();
