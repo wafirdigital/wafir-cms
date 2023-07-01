@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->integer('media_id')->foreign('media_id')->references('id')->on('media');
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
             $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users');
