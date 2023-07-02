@@ -4,8 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Models\Product;
-use App\Models\User;
 
 class TopicResource extends JsonResource
 {
@@ -18,7 +16,7 @@ class TopicResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => 'categories',
+            'type' => 'Topic',
             'attributes' => [
                 'name' => $this->name,
                 'description' => $this->description,

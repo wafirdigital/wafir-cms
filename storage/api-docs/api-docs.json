@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "WAFIR CMS API",
+        "title": "WAFIR Publisher API",
         "version": "1.0.0"
     },
     "paths": {
@@ -18,18 +18,23 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name",
+                                    "first_name",
+                                    "last_name",
                                     "email",
                                     "password"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "first_name": {
                                         "type": "text",
-                                        "example": "Odai Nasser"
+                                        "example": "WAFIR"
+                                    },
+                                    "last_name": {
+                                        "type": "text",
+                                        "example": "Author"
                                     },
                                     "email": {
                                         "type": "text",
-                                        "example": "karajah90@icloud.com"
+                                        "example": "author@wafir.digital"
                                     },
                                     "password": {
                                         "type": "text",
@@ -102,7 +107,7 @@
                                 "properties": {
                                     "email": {
                                         "type": "text",
-                                        "example": "karajah90@icloud.com"
+                                        "example": "author@wafir.digital"
                                     },
                                     "password": {
                                         "type": "text",
@@ -943,18 +948,23 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name",
+                                    "first_name",
+                                    "last_name",
                                     "email",
                                     "password"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "first_name": {
                                         "type": "text",
-                                        "example": "Odai Nasser"
+                                        "example": "Odai"
+                                    },
+                                    "last_name": {
+                                        "type": "text",
+                                        "example": "Nasser"
                                     },
                                     "email": {
                                         "type": "text",
-                                        "example": "odai.karajah90@gmail.com"
+                                        "example": "odai@wafir.digital"
                                     },
                                     "password": {
                                         "type": "text",
@@ -1015,7 +1025,7 @@
                 ],
                 "summary": "Get User By Id",
                 "description": "Get User By Id",
-                "operationId": "Get Users By Id",
+                "operationId": "Get User By Id",
                 "parameters": [
                     {
                         "name": "id",
@@ -1031,7 +1041,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "Users Return Successfully",
+                        "description": "User By ID Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -1039,7 +1049,7 @@
                         }
                     },
                     "200": {
-                        "description": "Users Return Successfully",
+                        "description": "User By ID Return Successfully",
                         "content": {
                             "application/json": {
                                 "schema": {}
@@ -1058,7 +1068,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Exercise Not Found"
+                        "description": "User By ID Not Found"
                     }
                 },
                 "security": [
@@ -1092,18 +1102,23 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "name",
+                                    "first_name",
+                                    "last_name",
                                     "email",
                                     "password"
                                 ],
                                 "properties": {
-                                    "name": {
+                                    "first_name": {
                                         "type": "text",
-                                        "example": "Odai Nasser"
+                                        "example": "Odai"
+                                    },
+                                    "last_name": {
+                                        "type": "text",
+                                        "example": "Nasser"
                                     },
                                     "email": {
                                         "type": "text",
-                                        "example": "odai.karajah90@gmail.com"
+                                        "example": "odai@wafir.digital"
                                     },
                                     "password": {
                                         "type": "text",
@@ -1147,7 +1162,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "User Not Found"
                     }
                 },
                 "security": [

@@ -23,9 +23,10 @@ class UserAuthController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"name", "email", "password" },
-     *                @OA\Property(property="name", type="text", example="Odai Nasser"),
-     *                @OA\Property(property="email", type="text", example="karajah90@icloud.com"),
+     *               required={"first_name", "last_name", "email", "password" },
+     *                @OA\Property(property="first_name", type="text", example="WAFIR"),
+     *                @OA\Property(property="last_name", type="text", example="Author"),
+     *                @OA\Property(property="email", type="text", example="author@wafir.digital"),
      *                @OA\Property(property="password", type="text", example="12345678"),
      *            ),
      *        ),
@@ -52,13 +53,15 @@ class UserAuthController extends Controller
     public function register(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|min:4',
+            'first_name' => 'required|min:4',
+            'last_name' => 'required|min:4',
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
- 
+
         $user = User::create([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
@@ -82,7 +85,7 @@ class UserAuthController extends Controller
     *            @OA\Schema(
     *               type="object",
     *               required={"email", "password"},
-    *                @OA\Property(property="email", type="text", example="karajah90@icloud.com"),
+    *                @OA\Property(property="email", type="text", example="author@wafir.digital"),
     *                @OA\Property(property="password", type="text", example="12345678"),
     *            ),
     *        ),

@@ -57,9 +57,10 @@ class UserController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"name", "email", "password" },
-     *               @OA\Property(property="name", type="text", example="Odai Nasser"),
-     *               @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
+     *               required={"first_name", "last_name", "email", "password" },
+     *               @OA\Property(property="first_name", type="text", example="Odai"),
+     *               @OA\Property(property="last_name", type="text", example="Nasser"),
+     *               @OA\Property(property="email", type="text", example="odai@wafir.digital"),
      *               @OA\Property(property="password", type="text", example="12345678"),
      *            ),
      *        ),
@@ -86,7 +87,8 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $user= User::create([
-            'name' =>  $request->name,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
          ]);
@@ -98,7 +100,7 @@ class UserController extends Controller
     /**
      * @OA\Get(
      * path="/api/v1/users/{id}",
-     * operationId="Get Users By Id",
+     * operationId="Get User By Id",
      * tags={"Users"},
      * summary="Get User By Id",
      * description="Get User By Id",
@@ -116,12 +118,12 @@ class UserController extends Controller
      * ),
      *      @OA\Response(
      *          response=201,
-     *          description="Users Return Successfully",
+     *          description="User By ID Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
      *          response=200,
-     *          description="Users Return Successfully",
+     *          description="User By ID Return Successfully",
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(
@@ -130,7 +132,7 @@ class UserController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Exercise Not Found"),
+     *      @OA\Response(response=404, description="User By ID Not Found"),
      * )
      */
     public function show(string $id)
@@ -164,9 +166,10 @@ class UserController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"name", "email", "password" },
-    *               @OA\Property(property="name", type="text", example="Odai Nasser"),
-    *               @OA\Property(property="email", type="text", example="odai.karajah90@gmail.com"),
+    *               required={"first_name", "last_name", "email", "password" },
+    *               @OA\Property(property="first_name", type="text", example="Odai"),
+    *               @OA\Property(property="last_name", type="text", example="Nasser"),
+    *               @OA\Property(property="email", type="text", example="odai@wafir.digital"),
     *               @OA\Property(property="password", type="text", example="12345678"),
     *             ),
     *        ),
@@ -187,17 +190,20 @@ class UserController extends Controller
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(response=400, description="Bad request"),
-    *      @OA\Response(response=404, description="Resource Not Found"),
+    *      @OA\Response(response=404, description="User Not Found"),
     * )
     */
     public function update(UserRequest $request, string $id)
     {
         $user = User::findOrFail($id);
+
         $user->update([
-           'name' => ($request->name) ? $request->name : $user->name,
-           'email' => ($request->email) ? $request->email : $user->email,
-           'password' => ($request->password) ? bcrypt($request->password): $user->password,
-        ]);
+                'first_name' => ($request->first_name) ? $request->first_name : $user->first_name,
+                'last_name' => ($request->last_name) ? $request->last_name : $user->last_name,
+                'email' => ($request->email) ? $request->email : $user->email,
+                'password' => ($request->password) ? bcrypt($request->password): $user->password,
+            ]);
+
         return new UserResource($user);
     }
 
