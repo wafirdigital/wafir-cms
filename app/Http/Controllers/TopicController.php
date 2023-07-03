@@ -34,7 +34,7 @@ class TopicController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Resource Not Found"),
+     *      @OA\Response(response=404, description="Topics Not Found"),
      * )
      */
     public function index()
@@ -57,9 +57,9 @@ class TopicController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-    *                required={"name", "description"},
-    *                @OA\Property(property="name", type="text", example="Toyota Corolla"),
-    *                @OA\Property(property="description", type="text", example="Nice Care"),
+     *                required={"name", "description"},
+     *                @OA\Property(property="name", type="text", example="Technology"),
+     *                @OA\Property(property="description", type="text", example="Technology Topic"),
      *            ),
      *        ),
      *    ),
@@ -126,7 +126,7 @@ class TopicController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Exercise Not Found"),
+     *      @OA\Response(response=404, description="Topic Not Found"),
      * )
      */
     public function show(string $id)
@@ -162,8 +162,8 @@ class TopicController extends Controller
     *            @OA\Schema(
     *               type="object",
     *               required={"name", "description"},
-    *               @OA\Property(property="name", type="text", example="Toyota Corolla"),
-    *               @OA\Property(property="description", type="text", example="Nice Care"),
+    *               @OA\Property(property="name", type="text", example="Money"),
+    *               @OA\Property(property="description", type="text", example="Money Topic"),
     *             ),
     *        ),
     *    ),
@@ -183,7 +183,7 @@ class TopicController extends Controller
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(response=400, description="Bad request"),
-    *      @OA\Response(response=404, description="Resource Not Found"),
+    *      @OA\Response(response=404, description="Topic Not Found"),
     * )
     */
     public function update(TopicRequest $request, string $id)
@@ -232,14 +232,14 @@ class TopicController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="User By ID Not Found"),
+     *      @OA\Response(response=404, description="Topic By ID Not Found"),
      * )
      */
     public function destroy(string $id)
     {
         $category = Topic::findOrFail($id);
         if($category->delete()){
-            return response('Category By ID Deleted Successfully', 200);
+            return response('Topic By ID Deleted Successfully', 200);
         }
     }
 }

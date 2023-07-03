@@ -607,7 +607,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "Topics Not Found"
                     }
                 },
                 "security": [
@@ -634,11 +634,11 @@
                                 "properties": {
                                     "name": {
                                         "type": "text",
-                                        "example": "Toyota Corolla"
+                                        "example": "Technology"
                                     },
                                     "description": {
                                         "type": "text",
-                                        "example": "Nice Care"
+                                        "example": "Technology Topic"
                                     }
                                 },
                                 "type": "object"
@@ -738,7 +738,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Exercise Not Found"
+                        "description": "Topic Not Found"
                     }
                 },
                 "security": [
@@ -778,11 +778,11 @@
                                 "properties": {
                                     "name": {
                                         "type": "text",
-                                        "example": "Toyota Corolla"
+                                        "example": "Money"
                                     },
                                     "description": {
                                         "type": "text",
-                                        "example": "Nice Care"
+                                        "example": "Money Topic"
                                     }
                                 },
                                 "type": "object"
@@ -822,7 +822,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "Topic Not Found"
                     }
                 },
                 "security": [
@@ -880,7 +880,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "User By ID Not Found"
+                        "description": "Topic By ID Not Found"
                     }
                 },
                 "security": [
