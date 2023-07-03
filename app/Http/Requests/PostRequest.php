@@ -24,6 +24,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
+            'status' => 'required|boolean',
         ];
     }
 }

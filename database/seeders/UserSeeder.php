@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'last_name' =>   'Admin',
             'email' => 'admin@wafir.digital',
             'type' =>  'admin',
+            'status' =>  'active',
             'password' => Hash::make('12345678'),
         ]);
     }

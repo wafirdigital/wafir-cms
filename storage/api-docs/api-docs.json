@@ -193,7 +193,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "Media Not Found"
                     }
                 },
                 "security": [
@@ -262,16 +262,21 @@
                             "schema": {
                                 "required": [
                                     "title",
-                                    "description"
+                                    "description",
+                                    "status"
                                 ],
                                 "properties": {
                                     "title": {
                                         "type": "text",
-                                        "example": "I Phone 14"
+                                        "example": "lorem ipsum title"
                                     },
                                     "description": {
                                         "type": "text",
-                                        "example": "Nice Phone"
+                                        "example": "lorem ipsum title description"
+                                    },
+                                    "status": {
+                                        "type": "text",
+                                        "example": "inactive"
                                     }
                                 },
                                 "type": "object"

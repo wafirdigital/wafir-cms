@@ -56,9 +56,10 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"title", "description"},
-     *               @OA\Property(property="title", type="text", example="I Phone 14"),
-     *               @OA\Property(property="description", type="text", example="Nice Phone"),
+     *               required={"title", "description", "status"},
+     *               @OA\Property(property="title", type="text", example="lorem ipsum title"),
+     *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
+     *               @OA\Property(property="status", type="text", example="inactive"),
      *            ),
      *        ),
      *    ),
@@ -86,6 +87,7 @@ class PostController extends Controller
         $post= Post::create([
             'title' =>  $request->title,
             'description' => $request->description,
+            'status' => $request->description,
          ]);
         return new PostResource($post);
     }
