@@ -79,7 +79,7 @@ class TopicController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Resource Not Found"),
+     *      @OA\Response(response=404, description="Topic Not Found"),
      * )
      */
     public function store(TopicRequest $request)
