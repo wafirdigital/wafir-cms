@@ -56,10 +56,9 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"title", "description", "status"},
+     *               required={"title", "description"},
      *               @OA\Property(property="title", type="text", example="lorem ipsum title"),
      *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
-     *               @OA\Property(property="status", type="text", example="inactive"),
      *            ),
      *        ),
      *    ),
@@ -87,7 +86,6 @@ class PostController extends Controller
         $post= Post::create([
             'title' =>  $request->title,
             'description' => $request->description,
-            'status' => $request->description,
          ]);
         return new PostResource($post);
     }
@@ -162,9 +160,10 @@ class PostController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"title", "description"},
+    *               required={"title", "description", "status"},
     *               @OA\Property(property="title", type="text", example="I Phone 14"),
     *               @OA\Property(property="description", type="text", example="Nice Phone"),
+    *               @OA\Property(property="status", type="text", example="active"),
     *             ),
     *        ),
     *    ),
@@ -189,10 +188,12 @@ class PostController extends Controller
     */
     public function update(PostRequest $request, string $id)
     {
+     
         $post = Post::findOrFail($id);
         $post->update([
            'title' => ($request->title) ? $request->title : $post->title,
            'description' => ($request->description) ? $request->description : $post->description,
+           'status' => ($request->status) ? $request->status : $post->status,
         ]);
         return new PostResource($post);
     }

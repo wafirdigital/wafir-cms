@@ -262,8 +262,7 @@
                             "schema": {
                                 "required": [
                                     "title",
-                                    "description",
-                                    "status"
+                                    "description"
                                 ],
                                 "properties": {
                                     "title": {
@@ -273,10 +272,6 @@
                                     "description": {
                                         "type": "text",
                                         "example": "lorem ipsum title description"
-                                    },
-                                    "status": {
-                                        "type": "text",
-                                        "example": "inactive"
                                     }
                                 },
                                 "type": "object"
@@ -411,7 +406,8 @@
                             "schema": {
                                 "required": [
                                     "title",
-                                    "description"
+                                    "description",
+                                    "status"
                                 ],
                                 "properties": {
                                     "title": {
@@ -421,6 +417,10 @@
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Phone"
+                                    },
+                                    "status": {
+                                        "type": "text",
+                                        "example": "active"
                                     }
                                 },
                                 "type": "object"

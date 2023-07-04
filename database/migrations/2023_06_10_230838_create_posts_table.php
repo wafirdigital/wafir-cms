@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->enum('status',['active','inactive'])->default('inactive');
-            $table->integer('media_id')->foreign('media_id')->references('id')->on('media');
+            $table->integer('media_id')->foreign('media_id')->references('id')->on('media')->nullable();
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users');
             $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users');
             $table->timestamps();

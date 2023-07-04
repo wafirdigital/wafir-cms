@@ -202,6 +202,7 @@ class UserController extends Controller
                 'first_name' => ($request->first_name) ? $request->first_name : $user->first_name,
                 'last_name' => ($request->last_name) ? $request->last_name : $user->last_name,
                 'email' => ($request->email) ? $request->email : $user->email,
+                'status' => ($request->status) ? $request->status : $user->status,
                 'password' => ($request->password) ? bcrypt($request->password): $user->password,
             ]);
 

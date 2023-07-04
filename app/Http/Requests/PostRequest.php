@@ -21,10 +21,18 @@ class PostRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'status' => 'required|boolean',
-        ];
+        if ($this->isMethod('post')) {
+            return [
+                'title' => 'required|string',
+                'description' => 'required|string',
+            ];
+        }else if($this->isMethod('put')){
+            return [
+                'title' => 'required|string',
+                'description' => 'required|string',
+                'status' => 'required|string',
+            ];
+        }
+  
     }
 }

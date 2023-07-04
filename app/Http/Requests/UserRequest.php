@@ -34,7 +34,7 @@ class UserRequest extends FormRequest
                 'last_name' => 'required|min:4',
                 'email' => 'required|email',
                 'status' => 'required|string',
-                'password' => 'min:8',
+                'password' => 'required|min:8',
             ];
         }
       

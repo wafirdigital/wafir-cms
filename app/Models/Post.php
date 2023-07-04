@@ -18,7 +18,7 @@ class Post extends Model
     {
 
         parent::boot();
-
+   
         static::creating(function ($model) {
             if (!$model->isDirty('created_by')) {
                 $model->created_by = !is_null(auth()->user()) ? auth()->user()->id : null;
