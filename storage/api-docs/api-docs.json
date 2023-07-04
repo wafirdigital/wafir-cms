@@ -1373,7 +1373,7 @@
                                     "first_name",
                                     "last_name",
                                     "email",
-                                    "password"
+                                    "status"
                                 ],
                                 "properties": {
                                     "first_name": {
@@ -1388,9 +1388,13 @@
                                         "type": "text",
                                         "example": "odai@wafir.digital"
                                     },
+                                    "status": {
+                                        "type": "text",
+                                        "example": "active"
+                                    },
                                     "password": {
                                         "type": "text",
-                                        "example": "12345678"
+                                        "example": ""
                                     }
                                 },
                                 "type": "object"

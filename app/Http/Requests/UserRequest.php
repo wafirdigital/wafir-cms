@@ -21,11 +21,22 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'first_name' => 'required|min:4',
-            'last_name' => 'required|min:4',
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-        ];
+        if ($this->isMethod('post')) {
+            return [
+                'first_name' => 'required|min:4',
+                'last_name' => 'required|min:4',
+                'email' => 'required|email',
+                'password' => 'required|min:8',
+            ];
+        }else if($this->isMethod('put')){
+            return [
+                'first_name' => 'required|min:4',
+                'last_name' => 'required|min:4',
+                'email' => 'required|email',
+                'status' => 'required|string',
+                'password' => 'min:8',
+            ];
+        }
+      
     }
 }
