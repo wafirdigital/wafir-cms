@@ -1,6 +1,7 @@
 <div align="center">
     <img src="/resources/images/logo.png?1" alt="logo"></img>
 </div>
+
 ## Installation
 
 - php artisan migrate --seed
