@@ -1,5 +1,6 @@
-<p align="center"><img src="/resources/images/logo.png?1" alt="WAFIR publisher logo" width="700" height="600"></p>
-
+<div align="center">
+    <img src="/resources/images/logo.png?1" alt="logo"></img>
+</div>
 ## Installation
 
 - php artisan migrate --seed
