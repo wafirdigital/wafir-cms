@@ -2,7 +2,7 @@
     <img src="/resources/images/logo.png?1" alt="logo"></img>
 </div>
 
-# Table of Contents
+# Documentation
 
 1. [Installation](#installation)
 2. [Features](#features)
