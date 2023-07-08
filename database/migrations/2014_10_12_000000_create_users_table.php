@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('type',['admin','author'])->default('author');
+            $table->integer('media_id')->foreign('media_id')->references('id')->on('media')->nullable();
             $table->enum('status',['active','inactive'])->default('inactive');
             $table->integer('created_by')->foreign('created_by')->references('id')->on('users')->nullable();
             $table->integer('updated_by')->foreign('updated_by')->references('id')->on('users')->nullable();
