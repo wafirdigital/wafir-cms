@@ -88,6 +88,7 @@ class PostController extends Controller
         $post= Post::create([
             'title' =>  $request->title,
             'description' => $request->description,
+            'source' => $request->source,
          ]);
         return new PostResource($post);
     }
@@ -196,6 +197,7 @@ class PostController extends Controller
         $post->update([
            'title' => ($request->title) ? $request->title : $post->title,
            'description' => ($request->description) ? $request->description : $post->description,
+           'source' => ($request->source) ? $request->source : $post->source,
            'status' => ($request->status) ? $request->status : $post->status,
         ]);
         return new PostResource($post);
