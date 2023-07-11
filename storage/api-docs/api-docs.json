@@ -263,7 +263,7 @@
                                 "required": [
                                     "title",
                                     "description",
-                                    "resource"
+                                    "source"
                                 ],
                                 "properties": {
                                     "title": {
@@ -274,7 +274,7 @@
                                         "type": "text",
                                         "example": "lorem ipsum title description"
                                     },
-                                    "resource": {
+                                    "source": {
                                         "type": "text",
                                         "example": "https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"
                                     }
@@ -316,7 +316,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "Post Not Found"
                     }
                 },
                 "security": [
@@ -413,7 +413,7 @@
                                     "title",
                                     "description",
                                     "status",
-                                    "resource"
+                                    "source"
                                 ],
                                 "properties": {
                                     "title": {
@@ -424,7 +424,7 @@
                                         "type": "text",
                                         "example": "Nice Phone"
                                     },
-                                    "resource": {
+                                    "source": {
                                         "type": "text",
                                         "example": "https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"
                                     },
@@ -470,7 +470,7 @@
                         "description": "Bad request"
                     },
                     "404": {
-                        "description": "Resource Not Found"
+                        "description": "Post Not Found"
                     }
                 },
                 "security": [

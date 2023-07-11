@@ -56,10 +56,10 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"title", "description", "resource"},
+     *               required={"title", "description", "source"},
      *               @OA\Property(property="title", type="text", example="lorem ipsum title"),
      *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
-     *               @OA\Property(property="resource", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
+     *               @OA\Property(property="source", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
      * 
      *            ),
      *        ),
@@ -80,7 +80,7 @@ class PostController extends Controller
      *          @OA\JsonContent()
      *       ),
      *      @OA\Response(response=400, description="Bad request"),
-     *      @OA\Response(response=404, description="Resource Not Found"),
+     *      @OA\Response(response=404, description="Post Not Found"),
      * )
      */
     public function store(PostRequest $request)
@@ -162,10 +162,10 @@ class PostController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"title", "description", "status", "resource"},
+    *               required={"title", "description", "status", "source"},
     *               @OA\Property(property="title", type="text", example="I Phone 14"),
     *               @OA\Property(property="description", type="text", example="Nice Phone"),
-    *               @OA\Property(property="resource", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
+    *               @OA\Property(property="source", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
     *               @OA\Property(property="status", type="text", example="active"),
     *             ),
     *        ),
@@ -186,7 +186,7 @@ class PostController extends Controller
     *          @OA\JsonContent()
     *       ),
     *      @OA\Response(response=400, description="Bad request"),
-    *      @OA\Response(response=404, description="Resource Not Found"),
+    *      @OA\Response(response=404, description="Post Not Found"),
     * )
     */
     public function update(PostRequest $request, string $id)
