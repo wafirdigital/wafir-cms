@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('description')->nullable();
             $table->string('path');
-            $table->enum('module',['users','posts']);
+            $table->enum('module',['users','posts','topics']);
             $table->timestamps();
         });
     }

@@ -201,6 +201,81 @@
                         "apiAuth": []
                     }
                 ]
+            },
+            "post": {
+                "tags": [
+                    "Media"
+                ],
+                "summary": "Add New Media",
+                "description": "Add New Media",
+                "operationId": "Add New Media",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "file",
+                                    "description",
+                                    "module"
+                                ],
+                                "properties": {
+                                    "file": {
+                                        "type": "file"
+                                    },
+                                    "description": {
+                                        "type": "text",
+                                        "example": "lorem ipsum title description"
+                                    },
+                                    "module": {
+                                        "type": "text",
+                                        "example": "users"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Media Created Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Media Created Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Media Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/posts": {

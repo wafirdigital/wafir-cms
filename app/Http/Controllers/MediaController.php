@@ -43,20 +43,55 @@ class MediaController extends Controller
         return MediaResource::collection(Media::paginate(10));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     * path="/api/v1/media",
+     * operationId="Add New Media",
+     * tags={"Media"},
+     * summary="Add New Media",
+     * description="Add New Media",
+     * security={{ "apiAuth": {} }},
+     *     @OA\RequestBody(
+     *         @OA\JsonContent(),
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *            @OA\Schema(
+     *               type="object",
+     *               required={"file", "description", "module"},
+     *               @OA\Property(property="file", type="file"),
+     *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
+     *               @OA\Property(property="module", type="text", example="users"),
+     *            ),
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Media Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Media Created Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Media Not Found"),
+     * )
      */
     public function store(MediaRequest $request)
     {
-        //
+        $media = Media::create([
+            'description' => $request->description,
+            'module' =>  $request->name,
+         ]);
+        return new MediaResource($media);
     }
 
     /**
