@@ -25,11 +25,13 @@ class PostRequest extends FormRequest
             return [
                 'title' => 'required|string',
                 'description' => 'required|string',
+                'resource' => 'required|string',
             ];
         }else if($this->isMethod('put')){
             return [
                 'title' => 'required|string',
                 'description' => 'required|string',
+                'resource' => 'required|string',
                 'status' => 'required|string',
             ];
         }

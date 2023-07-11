@@ -56,9 +56,11 @@ class PostController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"title", "description"},
+     *               required={"title", "description", "resource"},
      *               @OA\Property(property="title", type="text", example="lorem ipsum title"),
      *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
+     *               @OA\Property(property="resource", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
+     * 
      *            ),
      *        ),
      *    ),
@@ -160,9 +162,10 @@ class PostController extends Controller
     *            mediaType="multipart/form-data",
     *            @OA\Schema(
     *               type="object",
-    *               required={"title", "description", "status"},
+    *               required={"title", "description", "status", "resource"},
     *               @OA\Property(property="title", type="text", example="I Phone 14"),
     *               @OA\Property(property="description", type="text", example="Nice Phone"),
+    *               @OA\Property(property="resource", type="text", example="https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"),
     *               @OA\Property(property="status", type="text", example="active"),
     *             ),
     *        ),

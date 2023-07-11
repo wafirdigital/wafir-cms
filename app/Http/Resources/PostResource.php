@@ -20,6 +20,7 @@ class PostResource extends JsonResource
             'attributes' => [
                 'title' => $this->title,
                 'description' => $this->description,
+                'resource' => $this->resource,
                 'status' => $this->status,
             ]
         ];
