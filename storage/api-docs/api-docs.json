@@ -262,7 +262,8 @@
                             "schema": {
                                 "required": [
                                     "title",
-                                    "description"
+                                    "description",
+                                    "resource"
                                 ],
                                 "properties": {
                                     "title": {
@@ -272,6 +273,10 @@
                                     "description": {
                                         "type": "text",
                                         "example": "lorem ipsum title description"
+                                    },
+                                    "resource": {
+                                        "type": "text",
+                                        "example": "https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"
                                     }
                                 },
                                 "type": "object"
@@ -407,7 +412,8 @@
                                 "required": [
                                     "title",
                                     "description",
-                                    "status"
+                                    "status",
+                                    "resource"
                                 ],
                                 "properties": {
                                     "title": {
@@ -417,6 +423,10 @@
                                     "description": {
                                         "type": "text",
                                         "example": "Nice Phone"
+                                    },
+                                    "resource": {
+                                        "type": "text",
+                                        "example": "https://en.wikipedia.org/wiki/Trade_dollar_(United_States_coin)"
                                     },
                                     "status": {
                                         "type": "text",
