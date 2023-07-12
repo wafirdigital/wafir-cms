@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('image')->nullable();
+            $table->integer('media_id')->foreign('media_id')->references('id')->on('media')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
