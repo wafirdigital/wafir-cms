@@ -59,10 +59,9 @@ class MediaController extends Controller
      *            mediaType="multipart/form-data",
      *            @OA\Schema(
      *               type="object",
-     *               required={"file", "description", "module"},
+     *               required={"file", "description"},
      *               @OA\Property(property="file", type="file"),
      *               @OA\Property(property="description", type="text", example="lorem ipsum title description"),
-     *               @OA\Property(property="module", type="text", example="users"),
      *            ),
      *        ),
      *    ),
@@ -87,12 +86,14 @@ class MediaController extends Controller
      */
     public function store(MediaRequest $request)
     {
+        $path = '';
         $media = Media::create([
+            'path' =>  $path,
             'description' => $request->description,
-            'module' =>  $request->name,
          ]);
         return new MediaResource($media);
     }
+
 
     /**
      * Display the specified resource.
@@ -102,14 +103,7 @@ class MediaController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
+    
     /**
      * Update the specified resource in storage.
      */

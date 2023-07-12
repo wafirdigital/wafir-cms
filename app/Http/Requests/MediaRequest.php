@@ -22,8 +22,7 @@ class MediaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'title' => 'required|string',
+            'file' => 'required|mimes:jpeg,png,jpg',
             'description' => 'required|string',
         ];
     }

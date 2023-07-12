@@ -215,8 +215,7 @@
                             "schema": {
                                 "required": [
                                     "file",
-                                    "description",
-                                    "module"
+                                    "description"
                                 ],
                                 "properties": {
                                     "file": {
@@ -225,10 +224,6 @@
                                     "description": {
                                         "type": "text",
                                         "example": "lorem ipsum title description"
-                                    },
-                                    "module": {
-                                        "type": "text",
-                                        "example": "users"
                                     }
                                 },
                                 "type": "object"
